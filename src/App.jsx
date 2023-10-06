@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Login from './Login'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -41,14 +41,14 @@ function App() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Home
+              Kape-Kape!
             </Typography>
           </Toolbar>
         </AppBar>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/qrcode" element={<ShareQR />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
