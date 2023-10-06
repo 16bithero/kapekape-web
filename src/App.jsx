@@ -27,7 +27,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className='custom-body'>
       <BrowserRouter>
         <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
         <AppBar position="sticky" className='custom-appbar'>
@@ -56,7 +56,7 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 

@@ -23,9 +23,11 @@ export default function Profile() {
 
   return (
     <>
+    <div className='custom-body'>
     {data.details && (
       <h1>Name: {data.details.name}</h1>
     )}
+    </div>
   </>
   )
 }

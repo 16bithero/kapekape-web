@@ -4,6 +4,6 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div className='custom-body'>Home</div>
   )
 }

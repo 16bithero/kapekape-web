@@ -1,13 +1,26 @@
 html {
     width: 50%;
     margin: 0 auto;
+
+    --d: 4px;
+
+    background: radial-gradient(circle at var(--d) var(--d),
+  
+        #ffd82a calc(var(--d) - 1px),
+        #a01b1b00 var(--d)) 0 0 / 50px 50px;
 }
 
-.custom-appbar {
-    z-index: 1000 !important;
-    background-color: pink !important;
-}
+/* .custom-appbar {
+    background-color: #a01b1b !important;
+} */
 
+.custom-body{
+    height: 98vh;
+    background-color: white;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0em 0em 2em 2em;
+}
 .custom-textfield{
     width: 400px;
 }
