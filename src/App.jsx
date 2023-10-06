@@ -3,18 +3,26 @@ import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 import Login from './Login'
-import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import SlideDrawer from './SlideDrawer';
+
 
 function App() {
+
+  const [isLeftDrawerOpen, setIsLeftDrawerOpen] = React.useState(false);
+
+  const toggleLeftDrawer = () => {
+    setIsLeftDrawerOpen(!isLeftDrawerOpen);
+  };
 
   return (
     <>
       <BrowserRouter>
+      <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
         <AppBar position="static">
           <Toolbar>
             <IconButton
@@ -23,6 +31,7 @@ function App() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              onClick={toggleLeftDrawer} 
             >
               <MenuIcon />
             </IconButton>
