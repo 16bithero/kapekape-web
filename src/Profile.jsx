@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
 export default function Profile() {
-  const id = '6509454cd67ca264879118dd';
+  const { username } = useParams();
   const [data, setData] = useState({})
 
   const getProfile = async () => {
     try {
-      const userInfo = await axios.get(`https://kapekape-backend.vercel.app/api/user/${id}`);
+      const userInfo = await axios.get(`https://kapekape-backend.vercel.app/api/user/${username}`);
       console.log(userInfo.data);
       setData(userInfo.data);
     } catch (error) {
@@ -19,7 +19,7 @@ export default function Profile() {
 
   useEffect(() => {
     getProfile();
-  }, [id]);
+  }, [username]);
 
   return (
     <>

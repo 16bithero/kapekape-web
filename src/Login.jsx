@@ -13,7 +13,6 @@ export default function Login() {
     const [data, setData] = useState({
         email: '',
         password: '',
-        username: '',
     })
     const [error, setError] = useState('')
 

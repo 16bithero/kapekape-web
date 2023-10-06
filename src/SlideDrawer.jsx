@@ -9,6 +9,13 @@ import ListItemText from '@mui/material/ListItemText';
 import Link from '@mui/material/Link';
 
 export default function SlideDrawer({ open, onClose }) {
+
+  const getUsernameFromLocalStorage = () => {
+    return localStorage.getItem('username');
+  };
+
+  const username = getUsernameFromLocalStorage();
+
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -19,7 +26,7 @@ export default function SlideDrawer({ open, onClose }) {
       <List>
         {[
           { text: 'Home', path: '/' },
-          { text: 'Profile', path: '/profile' },
+          { text: 'Profile', path: username ? `/profile/${username}` : '/profile' },
           { text: 'QR Code', path: '/qrcode' },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
