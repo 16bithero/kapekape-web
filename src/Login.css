@@ -1,0 +1,19 @@
+.body-login {
+    height: 91vh;
+    background-color: whitesmoke;
+    width: 98%;
+    margin: 0 auto;
+}
+
+.body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+@media only screen and (max-width: 900px) {
+    html {
+        width: 100%;
+    }
+}

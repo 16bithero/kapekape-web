@@ -3,8 +3,21 @@ html {
     margin: 0 auto;
 }
 
+.custom-appbar {
+    z-index: 1000 !important;
+    background-color: pink !important;
+}
+
+.custom-textfield{
+    width: 400px;
+}
+
 @media only screen and (max-width: 900px) {
     html {
         width: 100%;
+    }
+
+    .custom-textfield{
+        width: 300px;
     }
 }

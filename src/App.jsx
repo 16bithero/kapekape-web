@@ -28,7 +28,7 @@ function App() {
     <>
       <BrowserRouter>
         <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
-        <AppBar position="static">
+        <AppBar position="sticky" className='custom-appbar'>
           <Toolbar>
             <IconButton
               size="large"
@@ -46,7 +46,7 @@ function App() {
           </Toolbar>
         </AppBar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/qrcode" element={<ShareQR />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
