@@ -5,10 +5,8 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import Link from '@mui/material/Link';
 
 export default function SlideDrawer({ open, onClose }) {
   const list = (anchor) => (
@@ -16,29 +14,30 @@ export default function SlideDrawer({ open, onClose }) {
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
       onClick={() => onClose(anchor, false)}
-      onKeyDown={() => onClose(anchor, false)} 
+      onKeyDown={() => onClose(anchor, false)}
     >
       <List>
-        {['Home', 'Profile', 'QR Code'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+        {[
+          { text: 'Home', path: '/' },
+          { text: 'Profile', path: '/profile' },
+          { text: 'QR Code', path: '/qrcode' },
+        ].map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton component={Link} to={item.path}>
+              <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {['Settings', 'Log-Out'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+        {[
+          { text: 'Settings', path: '/settings' },
+          { text: 'Log-Out', path: '/logout' },
+        ].map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton component={Link} to={item.path}>
+              <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}

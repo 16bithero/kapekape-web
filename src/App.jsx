@@ -9,6 +9,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SlideDrawer from './SlideDrawer';
+import Home from './Home'
+import ShareQR from './ShareQR'
+import Profile from './Profile'
+import Settings from './Settings'
+import SignUp from './SignUp'
 
 
 function App() {
@@ -22,7 +27,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
+        <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
         <AppBar position="static">
           <Toolbar>
             <IconButton
@@ -31,16 +36,21 @@ function App() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
-              onClick={toggleLeftDrawer} 
+              onClick={toggleLeftDrawer}
             >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
+              Home
             </Typography>
           </Toolbar>
         </AppBar>
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/qrcode" element={<ShareQR />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
