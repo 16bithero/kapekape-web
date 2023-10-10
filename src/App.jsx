@@ -52,7 +52,7 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight:'bold', fontSize:'x-large', fontFamily: 'Gabarito' }}>
               Kape-Kape!
             </Typography>
           </Toolbar>

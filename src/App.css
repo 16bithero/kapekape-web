@@ -2,7 +2,7 @@
 
 html {
     font-family: 'Gabarito', sans-serif;
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
 
     --d: 4px;
@@ -14,9 +14,12 @@ html {
 }
 
 
-/* .custom-appbar {
-    background-color: #a01b1b !important;
-} */
+.custom-appbar {
+    background-color: transparent !important;
+    color: black !important;
+    border-radius: 1em;
+    font-family: 'Gabarito', sans-serif !important;
+}
 
 h1{
     margin: 0;
@@ -41,7 +44,8 @@ h1{
 
 .profile-banner{
     display: flex;
-    background-image: url('https://media.pitchfork.com/photos/6501131f78e14fa92af4c74e/3:2/w_2250,h_1500,c_limit/Nicki%20Minaj.jpg');
+    background-color: white;
+    border: black 5px double;
     backdrop-filter: blur(10px);
     height: 22dvh;
     width: 90%;

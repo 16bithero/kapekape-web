@@ -37,12 +37,12 @@ export default function Profile({ setIsAuthenticated }) {
                   <Stack spacing={1}>
                   <h1>{data.details.name}</h1>
                   <h3>{data.details.city}, {data.details.country}</h3>
-                  <h3>"{data.details.bio}"</h3>
+                  <h5 style={{fontStyle: 'italic'}}>"{data.details.bio}"</h5>
                   </Stack>
                  
                 </div>
               </div>
-
+              
 
             </>
           )}
