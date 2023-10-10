@@ -26,13 +26,22 @@ export default function  Login({ setIsAuthenticated }) {
         try {
             await axios.post('https://kapekape-backend.vercel.app/api/user/login', login)
             .then(async (res) => {
+ 
                 const getUsername = await axios.get(`https://kapekape-backend.vercel.app/api/user/`);
                 //Checks if the email is in the database, then stores username in localstorage
                 const username = getUsername.data.filter((user) => user.email === data.email);
-                console.log(username[0].username);
-                console.log(username[0]._id);
                 localStorage.setItem('username', username[0].username);
                 localStorage.setItem('id', username[0]._id);
+
+                const getDetail = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${localStorage.getItem('id')}`);
+                if (true) {
+                localStorage.setItem('name', getDetail.data.details.name);
+                localStorage.setItem('city', getDetail.data.details.city);
+                localStorage.setItem('country', getDetail.data.details.country);
+                localStorage.setItem('bio', getDetail.data.details.bio);
+                localStorage.setItem('image', getDetail.data.details.image);
+                localStorage.setItem('social', getDetail.data.details.social);
+                }
             })
             setIsAuthenticated(true);
             navigate('/home');

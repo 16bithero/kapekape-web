@@ -1,6 +1,6 @@
 import './App.css'
 import { Stack, TextField } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
@@ -19,6 +19,26 @@ export default function Settings() {
   const [image, setImage] = useState('');
   const [social, setSocial] = useState('');
 
+  const getData = async () => {
+    try {
+      const userData = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${userID}`);
+      setName(userData.data.details.name);
+      setCity(userData.data.details.city);
+      setCountry(userData.data.details.country);
+      setBio(userData.data.details.bio);
+      setImage(userData.data.details.image);
+      setSocial(userData.data.details.social);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+
+
+  useEffect(() => {
+    getData();
+  }, []);
+  
   const updateDetails = async (event) => {
     event.preventDefault();
 
@@ -38,7 +58,6 @@ export default function Settings() {
       navigate('/home');
     } catch (error) {
       console.error('Error updating details:', error);
-      // Handle the error appropriately, e.g., set an error state
     }
   };
 
@@ -49,7 +68,7 @@ export default function Settings() {
           <h1>Update Profile</h1>
           <form onSubmit={updateDetails}>
           <Stack spacing={3} alignItems="center" justifyContent="center">
-              <TextField id="name" label="Name" variant="outlined" className='custom-textfield' value={name} onChange={(e) => setName(e.target.value)} />
+              <TextField id="name" label='Name' variant="outlined" className='custom-textfield' value={name} onChange={(e) => setName(e.target.value)} />
               <TextField id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
               <TextField id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
               <TextField id="bio" label="Bio" variant="outlined" className='custom-textfield' value={bio} onChange={(e) => setBio(e.target.value)} />
