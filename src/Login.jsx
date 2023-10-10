@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
-export default function Login() {
+export default function  Login({ setIsAuthenticated }) {
     let navigate = useNavigate();
     const [data, setData] = useState({
         email: '',
@@ -34,7 +34,8 @@ export default function Login() {
                 localStorage.setItem('username', username[0].username);
                 localStorage.setItem('id', username[0]._id);
             })
-            navigate('/qrcode');
+            setIsAuthenticated(true);
+            navigate('/home');
         } catch (error) {
             console.error(error);
             setError('Invalid Credentials');

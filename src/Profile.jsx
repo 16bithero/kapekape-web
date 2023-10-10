@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
-export default function Profile() {
+export default function Profile({ setIsAuthenticated }) {
   const { username } = useParams();
   const [data, setData] = useState({})
 

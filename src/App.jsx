@@ -14,21 +14,31 @@ import ShareQR from './ShareQR'
 import Profile from './Profile'
 import Settings from './Settings'
 import SignUp from './SignUp'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 
 function App() {
 
   
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = React.useState(false);
-
-
   const toggleLeftDrawer = () => {
     setIsLeftDrawerOpen(!isLeftDrawerOpen);
   };
 
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem('isAuthenticated') === 'true'
+  );
+
+  useEffect(() => {
+    localStorage.setItem('isAuthenticated', isAuthenticated);
+  }, [isAuthenticated]);
+
   return (
     <div className='custom-body'>
       <BrowserRouter>
+      {isAuthenticated && (
+        <>
         <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
         <AppBar position="relative" className='custom-appbar'>
           <Toolbar>
@@ -47,14 +57,16 @@ function App() {
             </Typography>
           </Toolbar>
         </AppBar>
+        </>
+         )}
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/"  element={<Login setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/home" element={<Home />} />
           <Route path="/qrcode" element={<ShareQR />} />
-          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/profile/:username" element={<Profile setIsAuthenticated={setIsAuthenticated}/>} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         </Routes>
       </BrowserRouter>
     </div>

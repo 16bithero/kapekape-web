@@ -3,8 +3,9 @@ import React from 'react'
 import QRCode from 'react-qr-code';
 
 export default function ShareQR() {
-    const id = '6509454cd67ca264879118dd';
-    const url = `https://kapekape-backend.vercel.app/api/user/${id}`;
+
+    const username = localStorage.getItem('username');
+    const url = `http://192.168.2.48:5173/profile/${username}`;
 
     return (
         <>
