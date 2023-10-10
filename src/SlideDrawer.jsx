@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './App.css'
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -10,11 +11,11 @@ import Link from '@mui/material/Link';
 
 export default function SlideDrawer({ open, onClose }) {
 
-  const getUsernameFromLocalStorage = () => {
+  const getUsername = () => {
     return localStorage.getItem('username');
   };
 
-  const username = getUsernameFromLocalStorage();
+  const username = getUsername();
 
   const list = (anchor) => (
     <Box
@@ -22,6 +23,7 @@ export default function SlideDrawer({ open, onClose }) {
       role="presentation"
       onClick={() => onClose(anchor, false)}
       onKeyDown={() => onClose(anchor, false)}
+      className='drawer'
     >
       <List>
         {[

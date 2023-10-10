@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+
 html {
+    font-family: 'Gabarito', sans-serif;
     width: 50%;
     margin: 0 auto;
 
@@ -10,17 +13,27 @@ html {
         #a01b1b00 var(--d)) 0 0 / 50px 50px;
 }
 
+
 /* .custom-appbar {
     background-color: #a01b1b !important;
 } */
 
-.custom-body{
-    height: 98vh;
-    background-color: white;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 0em 0em 2em 2em;
+h1{
+    margin: 0;
+    padding: 0.5em;
 }
+.custom-body{
+    width: 100%;
+    margin: 0 auto;;
+    border-radius: 0em 0em 2em 2em;
+    background-color: pink;
+}
+
+.custom-container {
+    height: 88dvh;
+    padding: 0.5em;
+}
+
 .custom-textfield{
     width: 400px;
 }

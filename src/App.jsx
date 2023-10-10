@@ -30,7 +30,7 @@ function App() {
     <div className='custom-body'>
       <BrowserRouter>
         <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
-        <AppBar position="sticky" className='custom-appbar'>
+        <AppBar position="relative" className='custom-appbar'>
           <Toolbar>
             <IconButton
               size="large"
