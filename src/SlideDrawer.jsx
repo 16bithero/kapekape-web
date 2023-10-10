@@ -7,7 +7,14 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import Link from '@mui/material/Link';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import QrCodeIcon from '@mui/icons-material/QrCode';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 export default function SlideDrawer({ open, onClose }) {
 
@@ -23,21 +30,27 @@ export default function SlideDrawer({ open, onClose }) {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      className='custom-drawer'
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, p: '0.5em', height: '100dvh'}}
       role="presentation"
       onClick={() => onClose(anchor, false)}
       onKeyDown={() => onClose(anchor, false)}
-      className='drawer'
     >
       <List>
+        
         {[
-          { text: 'Home', path: '/home' },
-          { text: 'Profile', path: username ? `/profile/${username}` : '/profile' },
-          { text: 'QR Code', path: '/qrcode' },
+          { text: 'Home', path: '/home', icon: <HomeIcon /> },
+          { text: 'Profile', path: username ? `/profile/${username}` : '/profile', icon: <AccountCircleIcon />},
+          { text: 'QR Code', path: '/qrcode', icon: <QrCodeIcon /> },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton component={Link} to={item.path}>
-              <ListItemText primary={item.text} />
+            <ListItemButton component={Link} to={item.path} >
+            <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText 
+              primaryTypographyProps={{fontWeight:'bold', fontFamily:'Gabarito', fontSize:'1.5em'}}
+              primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -45,12 +58,17 @@ export default function SlideDrawer({ open, onClose }) {
       <Divider />
       <List>
         {[
-          { text: 'Settings', path: '/settings' },
-          { text: 'Log-Out', path: '/', onClick: handleLogout },
+          { text: 'Update Profile', path: '/settings', icon: <EditNoteIcon /> },
+          { text: 'Log Out', path: '/', onClick: handleLogout, icon: <LogoutIcon /> },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton component={Link} to={item.path}  onClick={item.onClick}>
-              <ListItemText primary={item.text} />
+            <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText 
+                primaryTypographyProps={{fontWeight:'bold', fontFamily:'Gabarito', fontSize:'1.5em'}}
+                primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -59,7 +77,7 @@ export default function SlideDrawer({ open, onClose }) {
   );
 
   return (
-    <Drawer anchor="left" open={open} onClose={() => onClose('left', false)}>
+    <Drawer anchor="left" open={open} onClose={() => onClose('left', false)} sx={{backdropFilter: 'blur(3px)'}}>
       {list('left')}
     </Drawer>
   );

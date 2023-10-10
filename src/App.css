@@ -41,7 +41,8 @@ h1{
 
 .profile-banner{
     display: flex;
-    background-color: pink;
+    background-image: url('https://media.pitchfork.com/photos/6501131f78e14fa92af4c74e/3:2/w_2250,h_1500,c_limit/Nicki%20Minaj.jpg');
+    backdrop-filter: blur(10px);
     height: 22dvh;
     width: 90%;
     margin: 0 auto;
@@ -72,6 +73,7 @@ h1{
     padding-left: 2em;
     font-size: x-large;
 }
+
 
 
 /* Mobile Phone */
