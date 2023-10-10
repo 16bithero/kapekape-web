@@ -49,6 +49,7 @@ function App() {
         </AppBar>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/qrcode" element={<ShareQR />} />
           <Route path="/profile/:username" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />

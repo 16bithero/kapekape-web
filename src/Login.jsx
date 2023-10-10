@@ -30,7 +30,9 @@ export default function Login() {
                 //Checks if the email is in the database, then stores username in localstorage
                 const username = getUsername.data.filter((user) => user.email === data.email);
                 console.log(username[0].username);
+                console.log(username[0]._id);
                 localStorage.setItem('username', username[0].username);
+                localStorage.setItem('id', username[0]._id);
             })
             navigate('/qrcode');
         } catch (error) {

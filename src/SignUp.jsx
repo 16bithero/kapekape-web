@@ -1,12 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import './Login.css'
-import Skeleton from '@mui/material/Skeleton';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl, Stack } from '@mui/material';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 export default function SignUp() {
 

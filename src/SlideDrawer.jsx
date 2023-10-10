@@ -27,7 +27,7 @@ export default function SlideDrawer({ open, onClose }) {
     >
       <List>
         {[
-          { text: 'Home', path: '/' },
+          { text: 'Home', path: '/home' },
           { text: 'Profile', path: username ? `/profile/${username}` : '/profile' },
           { text: 'QR Code', path: '/qrcode' },
         ].map((item, index) => (

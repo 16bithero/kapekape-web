@@ -24,9 +24,22 @@ export default function Profile() {
   return (
     <>
       <div className='custom-body'>
+        <div className='custom-container'>
         {data.details && (
+          <>
           <h1>Name: {data.details.name}</h1>
+          <h1>City: {data.details.city}</h1>
+          <h1>Country: {data.details.country}</h1>
+          <h1>Bio: {data.details.bio}</h1>
+          <h1>Image: {data.details.image}</h1>
+          <h1>Social: {data.details.social}</h1>
+          </>
+          
         )}
+        
+
+          </div>
+      
       </div>
     </>
   )
