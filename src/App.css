@@ -22,6 +22,7 @@ h1{
     margin: 0;
     padding: 0.5em;
 }
+
 .custom-body{
     width: 100%;
     margin: 0 auto;;
@@ -38,6 +39,39 @@ h1{
     width: 400px;
 }
 
+.profile-banner{
+    display: flex;
+    background-color: pink;
+    height: 25dvh;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em;
+    align-items: center;
+    border-radius: 2em;
+}
+
+.profile-banner h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-image {
+    display: flex;
+    padding-left: 4em;
+}
+
+.profile-image img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+}
+
 @media only screen and (max-width: 900px) {
     html {
         width: 100%;
@@ -50,5 +84,36 @@ h1{
     .custom-container {
         height: 100%;
         padding: 0.5em;
+    }
+
+    .profile-banner{
+        height: 18dvh;
+        padding: 1em;
+    }
+    
+    .profile-banner h1 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .profile-image {
+        display: flex;
+        padding-left: 0.1em;
+    }
+
+    .profile-image img {
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+    }
+    
+    .custom-skeleton {
+        height: 10px;
+        width: 10px;
+    }
+    .profile-text {
+        display: flex;
+        flex-direction: column;
+        font-size: small
     }
 }
