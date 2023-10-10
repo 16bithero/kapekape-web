@@ -1,13 +1,29 @@
 import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+
 
 export default function Home() {
+  const userID = localStorage.getItem('id');
+  const [name, setName] = useState('');
 
-  const name = localStorage.getItem('name');
+  const getData = async () => {
+    try {
+      const userData = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${userID}`);
+      setName(userData.data.details.name);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className='custom-body'>
       <div className='custom-container'>
-        <h1>Hello, {name? name: "bestie"}!</h1>
+        <h1>Hello, {name? name: "user"}!</h1>
       </div>
     </div>
   )
