@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className='custom-body'>
       <div className='custom-container'>
-        <h1>Hello, {name}!</h1>
+        <h1>Hello, {name? name: "bestie"}!</h1>
       </div>
     </div>
   )

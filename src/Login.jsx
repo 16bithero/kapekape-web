@@ -34,13 +34,14 @@ export default function  Login({ setIsAuthenticated }) {
                 localStorage.setItem('id', username[0]._id);
 
                 const getDetail = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${localStorage.getItem('id')}`);
-                if (true) {
-                localStorage.setItem('name', getDetail.data.details.name);
-                localStorage.setItem('city', getDetail.data.details.city);
-                localStorage.setItem('country', getDetail.data.details.country);
-                localStorage.setItem('bio', getDetail.data.details.bio);
-                localStorage.setItem('image', getDetail.data.details.image);
-                localStorage.setItem('social', getDetail.data.details.social);
+                if (getDetail.data.details) {
+                    const details = getDetail.data.details;
+                    if (details.name) localStorage.setItem('name', details.name);
+                    if (details.city) localStorage.setItem('city', details.city);
+                    if (details.country) localStorage.setItem('country', details.country);
+                    if (details.bio) localStorage.setItem('bio', details.bio);
+                    if (details.image) localStorage.setItem('image', details.image);
+                    if (details.social) localStorage.setItem('social', details.social);
                 }
             })
             setIsAuthenticated(true);
