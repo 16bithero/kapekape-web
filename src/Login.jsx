@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { Button, FormControl, Stack } from '@mui/material';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
@@ -56,6 +57,7 @@ export default function Login() {
                                         <TextField id="email" label="Email" variant="outlined" className='custom-textfield' name="email" value={data.email} onChange={onValueChanged} />
                                         <TextField id="password" label="Password" fullWidth type='password' variant="outlined" className='custom-textfield' name="password" value={data.password} onChange={onValueChanged} />
                                         <Button variant="contained" fullWidth type='submit'>Login</Button>
+                                        <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3> 
                                     </Stack>
                                 </FormControl>
                             </form>
@@ -63,8 +65,6 @@ export default function Login() {
                         </Stack>
                     </div>
                 </div>
-
-
             </div>
         </>
     )

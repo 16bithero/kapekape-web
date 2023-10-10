@@ -40,7 +40,7 @@ export default function SlideDrawer({ open, onClose }) {
       <List>
         {[
           { text: 'Settings', path: '/settings' },
-          { text: 'Log-Out', path: '/logout' },
+          { text: 'Log-Out', path: '/' },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton component={Link} to={item.path}>
