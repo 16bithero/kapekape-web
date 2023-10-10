@@ -14,8 +14,12 @@ export default function SlideDrawer({ open, onClose }) {
   const getUsername = () => {
     return localStorage.getItem('username');
   };
-
   const username = getUsername();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setIsAuthenticated(false);
+  };
 
   const list = (anchor) => (
     <Box
@@ -42,10 +46,10 @@ export default function SlideDrawer({ open, onClose }) {
       <List>
         {[
           { text: 'Settings', path: '/settings' },
-          { text: 'Log-Out', path: '/' },
+          { text: 'Log-Out', path: '/', onClick: handleLogout },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton component={Link} to={item.path}>
+            <ListItemButton component={Link} to={item.path}  onClick={item.onClick}>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>

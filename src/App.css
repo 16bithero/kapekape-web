@@ -25,7 +25,7 @@ h1{
 .custom-body{
     width: 100%;
     margin: 0 auto;;
-    border-radius: 0em 0em 2em 2em;
+    border-radius: 2em 2em 2em 2em;
     background-color: pink;
 }
 
@@ -45,5 +45,10 @@ h1{
 
     .custom-textfield{
         width: 300px;
+    }
+
+    .custom-container {
+        height: 100%;
+        padding: 0.5em;
     }
 }
