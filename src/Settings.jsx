@@ -32,11 +32,15 @@ export default function Settings() {
       const userData = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${userID}`);
       setFname(userData.data.details.fname);
       setLname(userData.data.details.lname);
+      setTitle(userData.data.details.title);
+      setCompany(userData.data.details.company);
       setCity(userData.data.details.city);
       setCountry(userData.data.details.country);
       setBio(userData.data.details.bio);
       setImage(userData.data.details.image);
+      setPronouns(userData.data.details.pronouns);
       setSocial(userData.data.details.social);
+      setWebsite(userData.data.details.website);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -52,24 +56,24 @@ export default function Settings() {
     event.preventDefault();
 
 
-   
+
 
     try {
       const formData = new FormData();
       formData.append('file', image);
       formData.append("upload_preset", "kapekape");
       formData.append("cloud_name", "dleaws1hu");
-  
+
       const imageUploadResponse = await fetch("https://api.cloudinary.com/v1_1/dleaws1hu/image/upload", {
         method: 'POST',
         body: formData
       });
-  
+
       if (imageUploadResponse.ok) {
         const imageData = await imageUploadResponse.json();
         const imageUrl = imageData.url;
         console.log("Image uploaded:", imageUrl);
-  
+
         const id = userID;
         const inputEmp = {
           userId: id,
@@ -85,7 +89,7 @@ export default function Settings() {
           social: social,
           website: website,
         };
-  
+
         try {
           const response = await axios.patch(`https://kapekape-backend.vercel.app/api/detail/${userID}`, inputEmp);
           navigate('/home');
