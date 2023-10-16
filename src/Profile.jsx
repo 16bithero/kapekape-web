@@ -3,6 +3,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Skeleton, Stack } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter, faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+
+
 
 export default function Profile({ setIsAuthenticated }) {
   const { username } = useParams();
@@ -30,24 +36,35 @@ export default function Profile({ setIsAuthenticated }) {
             <>
               <div className='profile-banner'>
                 <div className='profile-image'>
-                  {/* <Skeleton variant="circular" className="custom-skeleton" height={200} width={200}/> */}
                   <img src={'https://i1.sndcdn.com/avatars-otulnqaphpqS98tn-SPPp4A-t500x500.jpg'} alt="profile" className="custom-image" />
                 </div>
                 <div className='profile-text'>
-                  <Stack spacing={1}>
                   <h1>{data.details.name}</h1>
-                  <h3>{data.details.city}, {data.details.country}</h3>
-                  <h5 style={{fontStyle: 'italic'}}>"{data.details.bio}"</h5>
-                  </Stack>
-                 
+                  <h5>Artist at Universal Music Group</h5>
+                  <div className='profile-socials'>
+                    <FontAwesomeIcon icon={faGithub} />
+                    <FontAwesomeIcon icon={faFacebook} />
+                    <FontAwesomeIcon icon={faLinkedinIn} />
+                    <FontAwesomeIcon icon={faXTwitter} />
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </div>
                 </div>
               </div>
-              
-
+              <div className='profile-bio'>
+                <h5>"{data.details.bio}"</h5>
+              </div>
+              <div className='profile-banner'>
+              <div className='profile-section'>
+                <h3>About Nicki</h3>
+                <div className='profile-contact'>
+                <h5><FontAwesomeIcon icon={faLocationDot} /> | {data.details.city}, {data.details.country}</h5>
+                  <h5><FontAwesomeIcon icon={faPhone} /> | 647-261-9091</h5>
+                  <h5><FontAwesomeIcon icon={faEnvelope} /> | Email: nicki@minaj.com</h5>
+                  </div>
+              </div>
+              </div>
             </>
           )}
-
-
         </div>
 
       </div>

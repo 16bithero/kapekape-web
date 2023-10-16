@@ -5,14 +5,13 @@ html {
     width: 40%;
     margin: 0 auto;
 
-    --d: 4px;
+    --d: 1px;
 
     background: radial-gradient(circle at var(--d) var(--d),
   
-        #ffd82a calc(var(--d) - 1px),
-        #a01b1b00 var(--d)) 0 0 / 50px 50px;
+        black calc(var(--d) - 1px),
+        #a01b1b00 var(--d)) 0 0 / 15px 15px;
 }
-
 
 .custom-appbar {
     background-color: transparent !important;
@@ -36,6 +35,7 @@ h1{
 .custom-container {
     height: 88dvh;
     padding: 0.5em;
+    margin-top: 1em;
 }
 
 .custom-textfield{
@@ -45,14 +45,13 @@ h1{
 .profile-banner{
     display: flex;
     background-color: white;
-    border: black 5px double;
     backdrop-filter: blur(10px);
     height: 22dvh;
     width: 90%;
     margin: 0 auto;
     padding: 1em;
     align-items: center;
-    border-radius: 2em;
+    border-radius: 1em;
 }
 
 .profile-banner h1 {
@@ -69,15 +68,49 @@ h1{
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .profile-text {
+    margin: 0;
     display: flex;
     flex-direction: column;
     padding-left: 2em;
-    font-size: x-large;
+    font-size: 23px;
 }
 
+.profile-text h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-socials{
+    margin-top: 0.4em;
+}
+
+.profile-socials > * {
+    margin-right: 10px;
+}
+
+.profile-bio {
+    text-align: center;
+    font-style: italic;
+    font-weight: 400;
+    font-size: large;
+}
+
+.profile-section{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+    font-size: 23px;
+}
+
+.profile-section h5 {
+    margin: 0;
+    padding: 0.3em;
+}
 
 
 /* Mobile Phone */
@@ -97,7 +130,8 @@ h1{
 
     .profile-banner{
         height: 18dvh;
-        padding: 1em;
+        padding: 0.5em;
+        border: black 1px solid;
     }
     
     .profile-banner h1 {
@@ -107,12 +141,12 @@ h1{
     
     .profile-image {
         display: flex;
-        padding-left: 0.1em;
+        padding-left: 1em;
     }
 
     .profile-image img {
-        height: 130px;
-        width: 130px;
+        height: 125px;
+        width: 125px;
         border-radius: 50%;
     }
     
@@ -121,9 +155,14 @@ h1{
         width: 10px;
     }
     .profile-text {
+        padding-left: 1em;
         display: flex;
         flex-direction: column;
-        font-size: small
+        font-size: 15px;
+    }
+
+    .profile-socials{
+        font-size: x-large;
     }
 }
 
