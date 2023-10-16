@@ -38,7 +38,7 @@ export default function Profile({ setIsAuthenticated }) {
             <>
               <div className='profile-banner'>
                 <div className='profile-image'>
-                  <img src={'https://i1.sndcdn.com/avatars-otulnqaphpqS98tn-SPPp4A-t500x500.jpg'} alt="profile" className="custom-image" />
+                  <img src={data.details.image} alt="profile-picture" className="custom-image" />
                 </div>
                 <div className='profile-text'>
                   <h1>{data.details.name}</h1>
@@ -56,13 +56,12 @@ export default function Profile({ setIsAuthenticated }) {
                 <h5>"{data.details.bio}"</h5>
               </div>
               <div className='profile-about'>
-                <h3>About</h3>
+                <h3>About Me</h3>
                 <div className='profile-section'>
                   <h5><FontAwesomeIcon icon={faUser} size='lg' /> he/him</h5>
                   <h5><FontAwesomeIcon icon={faLocationDot} size='lg' /> {data.details.city}, {data.details.country}</h5>
                 </div>
-                <br />
-                <h3>Contact</h3>
+
                 <div className='profile-section'>
                   <h5><FontAwesomeIcon icon={faPhone} size='lg' /> 647-261-9091</h5>
                   <h5><FontAwesomeIcon icon={faEnvelope} size='lg' /> nicki@minaj.com</h5>

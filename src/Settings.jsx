@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 
 
+
 export default function Settings() {
   const navigate = useNavigate();
   const userID = localStorage.getItem('id');
@@ -18,6 +19,23 @@ export default function Settings() {
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
   const [social, setSocial] = useState('');
+  const [url, setUrl] = useState('');
+
+  const uploadImg = async () => {
+    const formData = new FormData();
+    formData.append('file', image);
+    formData.append("upload_preset", "kapekape")
+    formData.append("cloud_name","dleaws1hu")
+    fetch("https://api.cloudinary.com/v1_1/dleaws1hu/image/upload",{
+      method: 'POST',
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUrl(data.url);
+      })
+      .catch(err => console.log(err));
+  }
 
   const getData = async () => {
     try {
@@ -38,7 +56,7 @@ export default function Settings() {
   useEffect(() => {
     getData();
   }, []);
-  
+
   const updateDetails = async (event) => {
     event.preventDefault();
 
@@ -49,11 +67,12 @@ export default function Settings() {
       city: city,
       country: country,
       bio: bio,
-      image: image,
+      image: url,
       social: social
     };
 
     try {
+      uploadImg();
       const response = await axios.post('https://kapekape-backend.vercel.app/api/detail/', inputEmp);
       navigate('/home');
     } catch (error) {
@@ -67,12 +86,12 @@ export default function Settings() {
         <div className='custom-container'>
           <h1>Update Profile</h1>
           <form onSubmit={updateDetails}>
-          <Stack spacing={3} alignItems="center" justifyContent="center">
+            <Stack spacing={3} alignItems="center" justifyContent="center">
               <TextField id="name" label='Name' variant="outlined" className='custom-textfield' value={name} onChange={(e) => setName(e.target.value)} />
               <TextField id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
               <TextField id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
               <TextField id="bio" label="Bio" variant="outlined" className='custom-textfield' value={bio} onChange={(e) => setBio(e.target.value)} />
-              <TextField id="image" label="Image" variant="outlined" className='custom-textfield' value={image} onChange={(e) => setImage(e.target.value)} />
+              <input type="file" onChange={(e) => setImage(e.target.files[0])} />
               <TextField id="social" label="Social" variant="outlined" className='custom-textfield' value={social} onChange={(e) => setSocial(e.target.value)} />
               <Button variant="contained" type='submit'>Update</Button>
             </Stack>

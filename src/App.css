@@ -28,8 +28,9 @@ h1{
 .custom-body{
     width: 100%;
     margin: 0 auto;;
-    border-radius: 2em 2em 2em 2em;
     background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 1em;
  
 }
 
@@ -46,7 +47,6 @@ h1{
 
 .profile-banner{
     display: flex;
-    background-color: white;
     backdrop-filter: blur(10px);
     height: 22dvh;
     width: 90%;
@@ -133,8 +133,8 @@ h1{
     padding: 0.5em;
     display: flex;
     align-items: center;
-    gap: 1em;
-    margin-left: calc(45% - 100px);
+    gap: 2em;
+    margin-left: calc(35% - 100px);
     font-weight: lighter;
 }
 
