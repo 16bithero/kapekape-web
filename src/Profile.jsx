@@ -41,14 +41,37 @@ export default function Profile({ setIsAuthenticated }) {
                   <img src={data.details.image} alt="profile-picture" className="custom-image" />
                 </div>
                 <div className='profile-text'>
-                  <h1>{data.details.name}</h1>
-                  <h5>Artist at Universal Music Group</h5>
+                  <h1>{data.details.fname} {data.details.lname}</h1>
+                  <h5>{data.details.title} {data.details.company ? `at ${data.details.company}` : ""}</h5>
                   <div className='profile-socials'>
-                    <FontAwesomeIcon icon={faGithub} />
-                    <FontAwesomeIcon icon={faFacebook} />
-                    <FontAwesomeIcon icon={faLinkedinIn} />
-                    <FontAwesomeIcon icon={faXTwitter} />
-                    <FontAwesomeIcon icon={faInstagram} />
+                    {data.details.social.github ? (
+                      <a href={data.details.social.github}>
+                        <FontAwesomeIcon icon={faGithub} />
+                      </a>
+                    ) : ""}
+                    {data.details.social.facebook ? (
+                      <a href={data.details.social.facebook}>
+                        <FontAwesomeIcon icon={faFacebook} />
+                      </a>
+                    ) : ""}
+
+                    {data.details.social.linkedin ? (
+                      <a href={data.details.social.linkedin}>
+                        <FontAwesomeIcon icon={faLinkedinIn} />
+                      </a>
+                    ) : ""}
+
+                    {data.details.social.twitter ? (
+                      <a href={data.details.social.twitter}>
+                        <FontAwesomeIcon icon={faXTwitter} />
+                      </a>
+                    ) : ""}
+
+                    {data.details.social.instagram ? (
+                      <a href={data.details.social.instagram}>
+                        <FontAwesomeIcon icon={faInstagram} />
+                      </a>
+                    ) : ""}
                   </div>
                 </div>
               </div>
@@ -58,14 +81,14 @@ export default function Profile({ setIsAuthenticated }) {
               <div className='profile-about'>
                 <h3>About Me</h3>
                 <div className='profile-section'>
-                  <h5><FontAwesomeIcon icon={faUser} size='lg' /> he/him</h5>
+                  <h5><FontAwesomeIcon icon={faUser} size='lg' /> {data.details.pronouns}</h5>
                   <h5><FontAwesomeIcon icon={faLocationDot} size='lg' /> {data.details.city}, {data.details.country}</h5>
                 </div>
 
                 <div className='profile-section'>
-                  <h5><FontAwesomeIcon icon={faPhone} size='lg' /> 647-261-9091</h5>
-                  <h5><FontAwesomeIcon icon={faEnvelope} size='lg' /> nicki@minaj.com</h5>
-                  <h5><FontAwesomeIcon icon={faGlobe} size='lg' /> renzzi.ca</h5>
+                  <h5><FontAwesomeIcon icon={faPhone} size='lg' /> {data.details.phone}</h5>
+                  <h5><FontAwesomeIcon icon={faEnvelope} size='lg' /> {data.email}</h5>
+                  <h5><FontAwesomeIcon icon={faGlobe} size='lg' /> {data.details.website}</h5>
                 </div>
               </div>
             </>

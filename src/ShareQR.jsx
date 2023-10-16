@@ -11,7 +11,7 @@ export default function ShareQR() {
         <>
             <div className='custom-body'>
                 <div className='custom-container'>
-                    <h1>Share your QR Code</h1>
+                    <h1>QR Code</h1>
                     <Stack spacing={2} alignItems="center" justifyContent="center">
                         <QRCode
                             title="Your Profile"
