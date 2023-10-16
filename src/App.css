@@ -30,12 +30,14 @@ h1{
     margin: 0 auto;;
     border-radius: 2em 2em 2em 2em;
     background-color: white;
+ 
 }
 
 .custom-container {
     height: 88dvh;
     padding: 0.5em;
     margin-top: 1em;
+    justify-content: center;
 }
 
 .custom-textfield{
@@ -95,30 +97,30 @@ h1{
 .profile-bio {
     text-align: center;
     font-style: italic;
-    font-size: large;
+    font-size: 20px;
     margin: 0;
-    padding: 0;
+    padding: 1em;
 }
 
 .profile-bio h5 {
     margin: 0;
-    padding-bottom: 2em;
+    padding: 1em;
+    font-size: 20px;
 }
 
 .profile-about{
     background-color: white;
     width: 60%;
     margin: 0 auto;
-    padding: 0.5em;
+    padding: 1em;
     align-items: center;
     border-radius: 1em;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .profile-about h3 {
     margin: 0;
-    padding: 0.3em;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .profile-section{
@@ -132,7 +134,7 @@ h1{
     display: flex;
     align-items: center;
     gap: 1em;
-    margin-left: calc(40% - 100px);
+    margin-left: calc(45% - 100px);
     font-weight: lighter;
 }
 
@@ -190,6 +192,16 @@ h1{
 
     .profile-about{
         width: 90%;
+    }
+
+    .profile-bio{
+        padding: 1em;
+    }
+
+    .profile-bio h5 {
+        margin: 0;
+        padding: 1em;
+        font-size: large;
     }
 }
 

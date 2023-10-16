@@ -58,15 +58,15 @@ export default function Profile({ setIsAuthenticated }) {
               <div className='profile-about'>
                 <h3>About</h3>
                 <div className='profile-section'>
-                  <h5><FontAwesomeIcon icon={faUser} size='xl' /> he/him</h5>
-                  <h5><FontAwesomeIcon icon={faLocationDot} size='xl' /> {data.details.city}, {data.details.country}</h5>
+                  <h5><FontAwesomeIcon icon={faUser} size='lg' /> he/him</h5>
+                  <h5><FontAwesomeIcon icon={faLocationDot} size='lg' /> {data.details.city}, {data.details.country}</h5>
                 </div>
                 <br />
                 <h3>Contact</h3>
                 <div className='profile-section'>
-                  <h5><FontAwesomeIcon icon={faPhone} size='xl' /> 647-261-9091</h5>
-                  <h5><FontAwesomeIcon icon={faEnvelope} size='xl' /> nicki@minaj.com</h5>
-                  <h5><FontAwesomeIcon icon={faGlobe} size='xl' /> renzzi.ca</h5>
+                  <h5><FontAwesomeIcon icon={faPhone} size='lg' /> 647-261-9091</h5>
+                  <h5><FontAwesomeIcon icon={faEnvelope} size='lg' /> nicki@minaj.com</h5>
+                  <h5><FontAwesomeIcon icon={faGlobe} size='lg' /> renzzi.ca</h5>
                 </div>
               </div>
             </>
