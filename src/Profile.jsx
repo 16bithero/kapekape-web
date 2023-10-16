@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -53,15 +55,19 @@ export default function Profile({ setIsAuthenticated }) {
               <div className='profile-bio'>
                 <h5>"{data.details.bio}"</h5>
               </div>
-              <div className='profile-banner'>
-              <div className='profile-section'>
-                <h3>About Nicki</h3>
-                <div className='profile-contact'>
-                <h5><FontAwesomeIcon icon={faLocationDot} /> | {data.details.city}, {data.details.country}</h5>
-                  <h5><FontAwesomeIcon icon={faPhone} /> | 647-261-9091</h5>
-                  <h5><FontAwesomeIcon icon={faEnvelope} /> | Email: nicki@minaj.com</h5>
-                  </div>
-              </div>
+              <div className='profile-about'>
+                <h3>About</h3>
+                <div className='profile-section'>
+                  <h5><FontAwesomeIcon icon={faUser} size='xl' /> he/him</h5>
+                  <h5><FontAwesomeIcon icon={faLocationDot} size='xl' /> {data.details.city}, {data.details.country}</h5>
+                </div>
+                <br />
+                <h3>Contact</h3>
+                <div className='profile-section'>
+                  <h5><FontAwesomeIcon icon={faPhone} size='xl' /> 647-261-9091</h5>
+                  <h5><FontAwesomeIcon icon={faEnvelope} size='xl' /> nicki@minaj.com</h5>
+                  <h5><FontAwesomeIcon icon={faGlobe} size='xl' /> renzzi.ca</h5>
+                </div>
               </div>
             </>
           )}

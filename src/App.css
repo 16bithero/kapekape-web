@@ -95,21 +95,45 @@ h1{
 .profile-bio {
     text-align: center;
     font-style: italic;
-    font-weight: 400;
     font-size: large;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-bio h5 {
+    margin: 0;
+    padding-bottom: 2em;
+}
+
+.profile-about{
+    background-color: white;
+    width: 60%;
+    margin: 0 auto;
+    padding: 0.5em;
+    align-items: center;
+    border-radius: 1em;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.profile-about h3 {
+    margin: 0;
+    padding: 0.3em;
+    font-size: 23px;
 }
 
 .profile-section{
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    padding-left: 2em;
     font-size: 23px;
 }
 
 .profile-section h5 {
-    margin: 0;
-    padding: 0.3em;
+    margin: auto;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-left: calc(40% - 100px);
+    font-weight: lighter;
 }
 
 
@@ -124,14 +148,13 @@ h1{
     }
 
     .custom-container {
-        height: 100%;
+        height: 90svh;
         padding: 0.5em;
     }
 
     .profile-banner{
         height: 18dvh;
         padding: 0.5em;
-        border: black 1px solid;
     }
     
     .profile-banner h1 {
@@ -163,6 +186,10 @@ h1{
 
     .profile-socials{
         font-size: x-large;
+    }
+
+    .profile-about{
+        width: 90%;
     }
 }
 
