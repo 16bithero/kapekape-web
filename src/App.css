@@ -54,6 +54,7 @@ a:visited{
     margin-top: 1em;
     justify-content: center;
     background-color: white;
+    border-radius: 1em;
 }
 
 .custom-textfield{
@@ -89,6 +90,7 @@ a:visited{
     width: 200px;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    object-fit: cover;
 }
 
 .profile-text {
@@ -116,8 +118,7 @@ a:visited{
     text-align: center;
     font-style: italic;
     font-size: 20px;
-    margin: 0;
-    padding: 1em;
+    padding: 0em;
 }
 
 .profile-bio h5 {
@@ -164,9 +165,16 @@ a:visited{
     align-items: center;
     border-radius: 1em;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    height: 50vh;
+    height: 60vh;
     overflow: auto;
 }
+
+.social-icons{
+    display: flex;
+    align-items: center;
+}
+
+
 
 
 /* Mobile Phone */
@@ -200,6 +208,7 @@ a:visited{
         height: 125px;
         width: 125px;
         border-radius: 50%;
+        object-fit: cover;
     }
     
     .custom-skeleton {
@@ -222,7 +231,7 @@ a:visited{
     }
 
     .profile-bio{
-        padding: 1em;
+        padding: 0em;
     }
 
     .profile-bio h5 {
@@ -237,7 +246,19 @@ a:visited{
     }
 
     .custom-textfield{
-        width: 300px;
+        width: 100%
+    }
+
+    .input-file{
+        clip: rect(0,0,0,0);
+        clip-path: inset(50%);
+        height: 1;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        white-space: nowrap;
+        width: 1;
     }
 }
 

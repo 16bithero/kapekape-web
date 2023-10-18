@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Button, Stack } from '@mui/material';
 
 
 export default function Home() {
@@ -24,6 +25,10 @@ export default function Home() {
     <div className='custom-body'>
       <div className='custom-container'>
         <h1>Hey there{name? ` ${name}!`: "!"}</h1>
+        <h2>Welcome to Kape-Kape!</h2>
+        <Stack spacing={2} direction="row">
+         <Button>Hahahaha</Button>
+        </Stack>
       </div>
     </div>
   )
