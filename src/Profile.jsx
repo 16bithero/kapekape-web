@@ -73,13 +73,19 @@ export default function Profile({ setIsAuthenticated }) {
                       </a>
                     ) : ""}
                   </div>
+     
+                  {/* <h5>"{data.details.bio}"</h5> */}
                 </div>
               </div>
+              <br />
+              <div className='profile-about'>
+              <h3>About {data.details.fname}</h3>
               <div className='profile-bio'>
-                <h5>"{data.details.bio}"</h5>
+              <h5>"{data.details.bio}"</h5>
+                </div>
               </div>
               <div className='profile-about'>
-                <h3>About Me</h3>
+                <h3>Contact</h3>
                 <div className='profile-section'>
                   <h5><FontAwesomeIcon icon={faUser} size='lg' /> {data.details.pronouns}</h5>
                   <h5><FontAwesomeIcon icon={faLocationDot} size='lg' /> {data.details.city}, {data.details.country}</h5>
