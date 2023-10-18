@@ -1,5 +1,5 @@
 import './App.css'
-import { Stack, TextField } from '@mui/material'
+import { Paper, Stack, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Button } from '@mui/material'
@@ -10,6 +10,12 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LanguageIcon from '@mui/icons-material/Language';
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -37,6 +43,12 @@ export default function Settings() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const [tabValue, setTabValue] = React.useState('github');
+
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
   };
 
   const getData = async () => {
@@ -69,7 +81,7 @@ export default function Settings() {
 
   const updateDetails = async (event) => {
     event.preventDefault();
-    
+
     try {
       const formData = new FormData();
       formData.append('file', image);
@@ -105,7 +117,6 @@ export default function Settings() {
             linkedin: linkedin,
             facebook: facebook,
             instagram: instagram,
-            website: website,
           },
           website: website,
         };
@@ -130,17 +141,18 @@ export default function Settings() {
         <div className='custom-container'>
           <h1>Update Profile</h1>
           <form onSubmit={updateDetails}>
-            <div>
+            <div className='update-profile'>
+
               <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                  <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="Personal Info" value="1" />
-                    <Tab label="Preferences" value="2" />
-                    <Tab label="Contact" value="3" />
+                  <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
+                    <Tab label="About me" value="1" />
+                    <Tab label="Info" value="2" />
+                    <Tab label="Socials" value="3" />
                   </TabList>
                 </Box>
                 <TabPanel value="1">
-                  <Stack spacing={3}>
+                  <Stack spacing={3} alignItems="center" justifyContent="center">
                     <input type="file" onChange={(e) => setImage(e.target.files[0])} />
                     <TextField id="fname" label='First Name' variant="outlined" className='custom-textfield' value={fname} onChange={(e) => setFname(e.target.value)} />
                     <TextField id="lname" label='Last Name' variant="outlined" className='custom-textfield' value={lname} onChange={(e) => setLname(e.target.value)} />
@@ -150,26 +162,98 @@ export default function Settings() {
                 </TabPanel>
 
                 <TabPanel value="2">
-                  <Stack spacing={3}>
+                  <Stack spacing={3} alignItems="center" justifyContent="center">
                     <TextField id="bio" label="Bio" variant="outlined" className='custom-textfield' value={bio} onChange={(e) => setBio(e.target.value)} />
                     <TextField id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
                     <TextField id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
                     <TextField id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
+                    <TextField id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
                   </Stack>
                 </TabPanel>
 
-                <TabPanel value="3">
-                  <Stack spacing={3}>
-                    <TextField id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                    <TextField id="github" label="Github" variant="outlined" className='custom-textfield' value={github} onChange={(e) => setGithub(e.target.value)} />
-                    <TextField id="twitter" label="Twitter" variant="outlined" className='custom-textfield' value={twitter} onChange={(e) => setTwitter(e.target.value)} />
-                    <TextField id="linkedin" label="Linkedin" variant="outlined" className='custom-textfield' value={linkedin} onChange={(e) => setLinkedin(e.target.value)} />
-                    <TextField id="facebook" label="Facebook" variant="outlined" className='custom-textfield' value={facebook} onChange={(e) => setFacebook(e.target.value)} />
-                    <TextField id="instagram" label="Instagram" variant="outlined" className='custom-textfield' value={instagram} onChange={(e) => setInstagram(e.target.value)} />
-                    <TextField id="website" label="Website" variant="outlined" className='custom-textfield' value={website} onChange={(e) => setWebsite(e.target.value)} />
-                  </Stack>
+                <TabPanel value="3" alignItems="center" justifyContent="center">
+                  <TabContext value={tabValue}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                      <TabList onChange={handleTabChange} aria-label="Social Media tabs" variant="scrollable" visibleScrollbar="true" style={{overflowX: '-moz-hidden-unscrollable'}}>
+                        <Tab label='GitHub' icon={<GitHubIcon />} value="github" />
+                        <Tab label='LinkedIn' icon={<LinkedInIcon />} value="linkedin" />
+                        <Tab label='Facebook' icon={<FacebookIcon />} value="facebook" />
+                        <Tab label='Twitter' icon={<TwitterIcon />} value="twitter" />
+                        <Tab label='Instagram' icon={<InstagramIcon />} value="instagram" />
+                        <Tab label='Website' icon={<LanguageIcon />} value="website" />
+                      </TabList>
+                    </Box>
+                    <Stack spacing={3} alignItems="center" justifyContent="center">
+
+    
+                    <TabPanel value="github">
+                      <TextField
+                        id="github"
+                        label="Github"
+                        variant="outlined"
+                        className="custom-textfield"
+                        value={github}
+                        onChange={(e) => setGithub(e.target.value)}
+                      />
+                    </TabPanel>
+                    <TabPanel value="linkedin">
+                      <TextField
+                        id="linkedin"
+                        label="LinkedIn"
+                        variant="outlined"
+                        className="custom-textfield"
+                        value={linkedin}
+                        onChange={(e) => setLinkedin(e.target.value)}
+                      />
+                    </TabPanel>
+                    <TabPanel value="facebook">
+                      <TextField
+                        id="facebook"
+                        label="Facebook"
+                        variant="outlined"
+                        className="custom-textfield"
+                        value={facebook}
+                        onChange={(e) => setFacebook(e.target.value)}
+                      />
+                    </TabPanel>
+                    <TabPanel value="twitter">
+                      <TextField
+                        id="twitter"
+                        label="Twitter"
+                        variant="outlined"
+                        className="custom-textfield"
+                        value={twitter}
+                        onChange={(e) => setTwitter(e.target.value)}
+                      />
+                    </TabPanel>
+                    <TabPanel value="instagram">
+                      <TextField
+                        id="instagram"
+                        label="Instagram"
+                        variant="outlined"
+                        className="custom-textfield"
+                        value={instagram}
+                        onChange={(e) => setInstagram(e.target.value)}
+                      />
+                    </TabPanel>
+                    <TabPanel value="website">
+                      <TextField
+                        id="website"
+                        label="website"
+                        variant="outlined"
+                        className="custom-textfield"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </TabPanel>
+                    </Stack>
+                  </TabContext>
+
                 </TabPanel>
               </TabContext>
+            </div>
+            <br />
+            <div style={{ justifyContent: 'center', display: 'flex' }}>
               <Button variant="contained" type='submit'>Update</Button>
             </div>
           </form>
