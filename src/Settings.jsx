@@ -181,7 +181,7 @@ export default function Settings() {
 
                 <TabPanel value="2">
                   <Stack spacing={3} alignItems="center" justifyContent="center">
-                    <TextField fullWidth id="bio" multiline rows={3} label="Bio" variant="outlined" className='custom-textfield' value={bio} onChange={(e) => setBio(e.target.value)} />
+                    <TextField fullWidth id="bio" multiline rows={3} label="Bio" variant="outlined" className='custom-textfield' helperText="Max 250 character limit." inputProps={{ maxLength: 250 }} value={bio} onChange={(e) => setBio(e.target.value)} />
                     <TextField fullWidth id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
                     <TextField fullWidth id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
                     <TextField fullWidth id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />

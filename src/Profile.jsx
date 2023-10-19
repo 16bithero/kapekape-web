@@ -33,7 +33,7 @@ export default function Profile({ setIsAuthenticated }) {
   return (
     <>
       <div className='custom-body'>
-        <div className='custom-container'>
+        <div className='custom-container' style={{height:'100%', marginTop:'0.5em'}}>
           {data.details && (
             <>
               <div className='profile-banner'>
@@ -73,8 +73,6 @@ export default function Profile({ setIsAuthenticated }) {
                       </a>
                     ) : ""}
                   </div>
-     
-                  {/* <h5>"{data.details.bio}"</h5> */}
                 </div>
               </div>
               <br />
@@ -84,6 +82,7 @@ export default function Profile({ setIsAuthenticated }) {
               <h5>"{data.details.bio}"</h5>
                 </div>
               </div>
+              <br />
               <div className='profile-about'>
                 <h3>Contact</h3>
                 <div className='profile-section'>

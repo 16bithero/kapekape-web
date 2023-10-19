@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
-import './Login.css'
+import './App.css'
 import Skeleton from '@mui/material/Skeleton';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl, Stack } from '@mui/material';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import QR from './assets/QR.png'
 
-
-export default function  Login({ setIsAuthenticated }) {
+export default function Login({ setIsAuthenticated }) {
     let navigate = useNavigate();
     const [data, setData] = useState({
         email: '',
@@ -25,25 +25,25 @@ export default function  Login({ setIsAuthenticated }) {
         };
         try {
             await axios.post('https://kapekape-backend.vercel.app/api/user/login', login)
-            .then(async (res) => {
- 
-                const getUsername = await axios.get(`https://kapekape-backend.vercel.app/api/user/`);
-                //Checks if the email is in the database, then stores username in localstorage
-                const username = getUsername.data.filter((user) => user.email === data.email);
-                localStorage.setItem('username', username[0].username);
-                localStorage.setItem('id', username[0]._id);
+                .then(async (res) => {
 
-                const getDetail = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${localStorage.getItem('id')}`);
-                if (getDetail.data.details) {
-                    const details = getDetail.data.details;
-                    if (details.name) localStorage.setItem('name', details.name);
-                    if (details.city) localStorage.setItem('city', details.city);
-                    if (details.country) localStorage.setItem('country', details.country);
-                    if (details.bio) localStorage.setItem('bio', details.bio);
-                    if (details.image) localStorage.setItem('image', details.image);
-                    if (details.social) localStorage.setItem('social', details.social);
-                }
-            })
+                    const getUsername = await axios.get(`https://kapekape-backend.vercel.app/api/user/`);
+                    //Checks if the email is in the database, then stores username in localstorage
+                    const username = getUsername.data.filter((user) => user.email === data.email);
+                    localStorage.setItem('username', username[0].username);
+                    localStorage.setItem('id', username[0]._id);
+
+                    const getDetail = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${localStorage.getItem('id')}`);
+                    if (getDetail.data.details) {
+                        const details = getDetail.data.details;
+                        if (details.name) localStorage.setItem('name', details.name);
+                        if (details.city) localStorage.setItem('city', details.city);
+                        if (details.country) localStorage.setItem('country', details.country);
+                        if (details.bio) localStorage.setItem('bio', details.bio);
+                        if (details.image) localStorage.setItem('image', details.image);
+                        if (details.social) localStorage.setItem('social', details.social);
+                    }
+                })
             setIsAuthenticated(true);
             navigate('/home');
         } catch (error) {
@@ -59,24 +59,23 @@ export default function  Login({ setIsAuthenticated }) {
 
     return (
         <>
-            <div className='body-login'>
-                <div className='body-container'>
-                    <div className='body-content'>
-                        <Stack spacing={4} alignItems="center" justifyContent="center">
-                            <Skeleton variant="circular" width={200} height={200} />
-                            <form onSubmit={userLogin}>
-                                <FormControl>
-                                    <Stack spacing={3} alignItems="center" justifyContent="center">
-                                        <TextField id="email" label="Email" variant="outlined" className='custom-textfield' name="email" value={data.email} onChange={onValueChanged} />
-                                        <TextField id="password" label="Password" fullWidth type='password' variant="outlined" className='custom-textfield' name="password" value={data.password} onChange={onValueChanged} />
-                                        <Button variant="contained" fullWidth type='submit'>Login</Button>
-                                        <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3> 
-                                    </Stack>
-                                </FormControl>
-                            </form>
-                            <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{error}</h4>
-                        </Stack>
-                    </div>
+            <div className='custom-body'>
+                <div className='login-container'>
+                    <Stack spacing={4} alignItems="center" justifyContent="center">
+                    <h1>Kape-Kape!</h1>
+                        <img src={QR} alt='QR' className='login-image' style={{width:'80%'}}/>
+                        <form onSubmit={userLogin}>
+                            <FormControl>
+                                <Stack spacing={3} alignItems="center" justifyContent="center">
+                                    <TextField fullWidth id="email" label="Email" variant="outlined" className='custom-textfield' name="email" value={data.email} onChange={onValueChanged} />
+                                    <TextField fullWidth id="password" label="Password" type='password' variant="outlined" className='custom-textfield' name="password" value={data.password} onChange={onValueChanged} />
+                                    <Button variant="contained" fullWidth type='submit'>Login</Button>
+                                    <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3>
+                                </Stack>
+                            </FormControl>
+                        </form>
+                        <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{error}</h4>
+                    </Stack>
                 </div>
             </div>
         </>
