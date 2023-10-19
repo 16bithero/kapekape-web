@@ -5,7 +5,7 @@ import QRCode from 'react-qr-code';
 export default function ShareQR() {
 
     const username = localStorage.getItem('username');
-    const url = `https://kapekape.netlify.app/${username}`;
+    const url = `https://kapekape.netlify.app/profile/${username}`;
 
     return (
         <>
