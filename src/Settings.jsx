@@ -15,6 +15,7 @@ import { faXTwitter, faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fo
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
 
 
 export default function Settings() {
@@ -45,7 +46,7 @@ export default function Settings() {
     setValue(newValue);
   };
 
-  const VisuallyHiddenInput = styled('input')({
+  const HideInput = styled('input')({
     clip: 'rect(0 0 0 0)',
     clipPath: 'inset(50%)',
     height: 1,
@@ -54,7 +55,7 @@ export default function Settings() {
     bottom: 0,
     left: 0,
     whiteSpace: 'nowrap',
-    width: 1,
+    width: '100%',
   });
 
   const getData = async () => {
@@ -148,45 +149,64 @@ export default function Settings() {
           <h1>Update Profile</h1>
           <form onSubmit={updateDetails}>
             <div className='update-profile'>
-
               <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                   <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
                     <Tab label="About me" value="1" />
                     <Tab label="Info" value="2" />
                     <Tab label="Socials" value="3" />
                   </TabList>
-                </Box>
                 <TabPanel value="1">
-                  <Stack spacing={3} alignItems="center" justifyContent="center">
-                    <img src={image} className="custom-image" style={{height:'200px', width:'200px', objectFit:'cover', borderRadius:'50%'}}/>
+                  <Stack spacing={3} alignItems="center" justifyContent="center" sx={{padding:'1em', margin:'auto'}}>
+                    <img src={image} className="custom-image" style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%' }} />
                     <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
-     Change Image
-     <VisuallyHiddenInput  type="file" onChange={(e) => setImage(e.target.files[0])}/>
-    </Button>
-                   
-                    <TextField id="fname" label='First Name' variant="outlined" className='custom-textfield' value={fname} onChange={(e) => setFname(e.target.value)} />
-                    <TextField id="lname" label='Last Name' variant="outlined" className='custom-textfield' value={lname} onChange={(e) => setLname(e.target.value)} />
-                    <TextField id="title" label="Title" variant="outlined" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <TextField id="company" label="Company" variant="outlined" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
+                      Change Image (Max 10MB)
+                      <HideInput type="file" onChange={(e) => setImage(e.target.files[0])} />
+                    </Button>
+                    <Grid container spacing={2} alignContent='center'>
+                      <Grid item xs={6}>
+                        <TextField id="fname" label='First Name' variant="outlined" className='custom-textfield' value={fname} onChange={(e) => setFname(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField id="lname" label='Last Name' variant="outlined" className='custom-textfield' value={lname} onChange={(e) => setLname(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField id="title" label="Title" variant="outlined" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField id="company" label="Company" variant="outlined" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
+                      </Grid>
+                    </Grid>
                   </Stack>
                 </TabPanel>
 
                 <TabPanel value="2">
-                  <Stack spacing={3} alignItems="center" justifyContent="center">
-                    <TextField id="bio" label="Bio" variant="outlined" className='custom-textfield' value={bio} onChange={(e) => setBio(e.target.value)} />
-                    <TextField id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
-                    <TextField id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
-                    <TextField id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
-                    <TextField id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
+                  <Stack spacing={2} alignItems="center" justifyContent="center">
+                  <TextField id="bio" fullWidth multiline rows={3} label="Bio" variant="outlined" className='custom-textfield'value={bio} onChange={(e) => setBio(e.target.value)} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={6}>
+                        <TextField id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
+
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
+
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
+
+                      </Grid>
+                    </Grid>
                   </Stack>
                 </TabPanel>
 
                 <TabPanel value="3" justifyContent="center">
                   <div className='profile-section'>
-                    <Stack spacing={3} alignItems="center" justifyContent="center">
+                    <Stack spacing={3} alignItems="center" justifyContent="center" sx={{padding:'0', margin:'auto'}}>
                       <div className='social-icons'>
-                        <FontAwesomeIcon icon={faLinkedinIn} style={{ marginRight: '1em', height:'30px', width:'30px'}} />
+                        <FontAwesomeIcon icon={faLinkedinIn} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField
                           id="linkedin"
                           label="LinkedIn"
@@ -194,13 +214,13 @@ export default function Settings() {
                           className="custom-textfield"
                           value={linkedin}
                           onChange={(e) => setLinkedin(e.target.value)}
-                          
+
                         />
                       </div>
 
                       <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1em', height:'30px', width:'30px' }} />
+                        <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField
                           id="facebook"
                           label="Facebook"
@@ -212,7 +232,7 @@ export default function Settings() {
 
                       </div>
                       <div className='social-icons'>
-                        <FontAwesomeIcon icon={faGithub} style={{ marginRight: '1em', height:'30px', width:'30px' }} />
+                        <FontAwesomeIcon icon={faGithub} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField
                           id="github"
                           label="GitHub"
@@ -226,7 +246,7 @@ export default function Settings() {
 
                       <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '1em', height:'30px', width:'30px' }} />
+                        <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField
                           id="instagram"
                           label="Instagram"
@@ -240,7 +260,7 @@ export default function Settings() {
 
                       <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faXTwitter} style={{ marginRight: '1em', height:'30px', width:'30px' }} />
+                        <FontAwesomeIcon icon={faXTwitter} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField
                           id="twitter"
                           label="X"
@@ -254,7 +274,7 @@ export default function Settings() {
 
                       <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '1em', height:'30px', width:'30px' }} />
+                        <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField
                           id="website"
                           label="Website"

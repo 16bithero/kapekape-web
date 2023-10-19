@@ -20,7 +20,6 @@ import { useEffect } from 'react'
 
 function App() {
 
-  
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = React.useState(false);
   const toggleLeftDrawer = () => {
     setIsLeftDrawerOpen(!isLeftDrawerOpen);
