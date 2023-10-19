@@ -48,10 +48,10 @@ export default function SignUp() {
   return (
     <>
       <div className='custom-body'>
-        <div className='login-container'>
+        <div className='login-container' style={{height:'100%'}}>
           <Stack spacing={4} alignItems="center" justifyContent="center">
             <h1>Kape-Kape!</h1>
-            <img src={QR} alt='QR' className='login-image' style={{ width: '80%' }} />
+            <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />
             <form onSubmit={addUser}>
               <FormControl>
                 <Stack spacing={3} alignItems="center" justifyContent="center">
