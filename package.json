@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://16bithero.github.io/kapekape-web",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
