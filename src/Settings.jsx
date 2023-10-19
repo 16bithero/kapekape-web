@@ -150,13 +150,13 @@ export default function Settings() {
           <form onSubmit={updateDetails}>
             <div className='update-profile'>
               <TabContext value={value}>
-                  <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
-                    <Tab label="About me" value="1" />
-                    <Tab label="Info" value="2" />
-                    <Tab label="Socials" value="3" />
-                  </TabList>
+                <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
+                  <Tab label="About me" value="1" />
+                  <Tab label="Info" value="2" />
+                  <Tab label="Socials" value="3" />
+                </TabList>
                 <TabPanel value="1">
-                  <Stack spacing={3} alignItems="center" justifyContent="center" sx={{padding:'1em', margin:'auto'}}>
+                  <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '1em', margin: 'auto' }}>
                     <img src={image} className="custom-image" style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%' }} />
                     <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
                       Change Image (Max 10MB)
@@ -180,31 +180,18 @@ export default function Settings() {
                 </TabPanel>
 
                 <TabPanel value="2">
-                  <Stack spacing={2} alignItems="center" justifyContent="center">
-                  <TextField id="bio" fullWidth multiline rows={3} label="Bio" variant="outlined" className='custom-textfield'value={bio} onChange={(e) => setBio(e.target.value)} />
-                    <Grid container spacing={2}>
-                      <Grid item xs={6}>
-                        <TextField id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
-
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
-
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
-
-                      </Grid>
-                    </Grid>
+                  <Stack spacing={3} alignItems="center" justifyContent="center">
+                    <TextField fullWidth id="bio" multiline rows={3} label="Bio" variant="outlined" className='custom-textfield' value={bio} onChange={(e) => setBio(e.target.value)} />
+                    <TextField fullWidth id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
+                    <TextField fullWidth id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
+                    <TextField fullWidth id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
+                    <TextField fullWidth id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
                   </Stack>
                 </TabPanel>
 
                 <TabPanel value="3" justifyContent="center">
                   <div className='profile-section'>
-                    <Stack spacing={3} alignItems="center" justifyContent="center" sx={{padding:'0', margin:'auto'}}>
+                    <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '0', margin: 'auto' }}>
                       <div className='social-icons'>
                         <FontAwesomeIcon icon={faLinkedinIn} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
                         <TextField

@@ -45,30 +45,30 @@ export default function Profile({ setIsAuthenticated }) {
                   <h5>{data.details.title} {data.details.company ? `at ${data.details.company}` : ""}</h5>
                   <div className='profile-socials'>
                     {data.details.social.github ? (
-                      <a href={data.details.social.github}>
+                      <a href={`https://github.com/${data.details.social.github}`}>
                         <FontAwesomeIcon icon={faGithub} />
                       </a>
                     ) : ""}
                     {data.details.social.facebook ? (
-                      <a href={data.details.social.facebook}>
+                      <a href={`https://facebook.com/${data.details.social.facebook}`}>
                         <FontAwesomeIcon icon={faFacebook} />
                       </a>
                     ) : ""}
 
                     {data.details.social.linkedin ? (
-                      <a href={data.details.social.linkedin}>
+                      <a href={`https://www.linkedin.com/in/${data.details.social.linkedin}`}>
                         <FontAwesomeIcon icon={faLinkedinIn} />
                       </a>
                     ) : ""}
 
                     {data.details.social.twitter ? (
-                      <a href={data.details.social.twitter}>
+                      <a href={`https://www.twitter.com/${data.details.social.twitter}`}>
                         <FontAwesomeIcon icon={faXTwitter} />
                       </a>
                     ) : ""}
 
                     {data.details.social.instagram ? (
-                      <a href={data.details.social.instagram}>
+                      <a href={`https://www.instagram.com/${data.details.social.instagram}`}>
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     ) : ""}
@@ -94,7 +94,7 @@ export default function Profile({ setIsAuthenticated }) {
                 <div className='profile-section'>
                   <h5><FontAwesomeIcon icon={faPhone} size='lg' /> {data.details.phone}</h5>
                   <h5><FontAwesomeIcon icon={faEnvelope} size='lg' /> {data.email}</h5>
-                  <h5><FontAwesomeIcon icon={faGlobe} size='lg' /> {data.details.website}</h5>
+                  <h5><FontAwesomeIcon icon={faGlobe} size='lg' /> <a href={`https://www.${data.details.website}`}>{data.details.website}</a></h5>
                 </div>
               </div>
             </>
