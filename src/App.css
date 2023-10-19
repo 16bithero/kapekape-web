@@ -38,6 +38,21 @@ a:visited{
     color: black;
 }
 
+.intro-text{
+    margin: 0;
+    padding: 1em;
+    text-align: justify;
+    font-weight: lighter;
+    font-size: 25px;
+}
+
+.landing-image {
+    width: 60%;
+    height: 30%;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 1em;    
+}
 
 .custom-body{
     width: 100%;
@@ -268,6 +283,15 @@ a:visited{
         left: 0;
         white-space: nowrap;
         width: 1;
+    }
+
+    .intro-text{
+        font-size: 20px;
+        padding: 0.5em;
+    }
+    
+    .landing-image {
+        width: 90%;
     }
 }
 
