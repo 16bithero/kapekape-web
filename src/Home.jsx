@@ -14,7 +14,7 @@ export default function Home() {
   const getData = async () => {
     try {
       const userData = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${userID}`);
-      setName(userData.data.details.name);
+      setName(userData.data.details.fname);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className='custom-body'>
       <div className='custom-container'>
-        <h1>Hey there{name? ` ${name}!`: "!"}</h1>
+        <h1>Hey there{name? `, ${name}!`: "!"}</h1>
         <img src={Landing} alt='Landing' className='landing-image' />
         <h3 className='intro-text'>'Kape-Kape' is a Filipino phrase commonly used when people invite each other for small talk and coffee. 
           This phrase inspired our app, a digital business card app that allows users to create meaningful connections with just a click of a QR code.</h3>

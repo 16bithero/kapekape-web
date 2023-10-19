@@ -5,7 +5,7 @@ import QRCode from 'react-qr-code';
 export default function ShareQR() {
 
     const username = localStorage.getItem('username');
-    const url = `http://192.168.2.48:5173/profile/${username}`;
+    const url = `https://16bithero.github.io/kapekape-web/${username}`;
 
     return (
         <>
