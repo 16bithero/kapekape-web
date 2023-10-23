@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:opsz,wght@6..12,300;6..12,500;6..12,600;6..12,700;6..12,900&display=swap');
 
 html {
     font-family: 'Gabarito', sans-serif;
@@ -9,14 +9,14 @@ html {
     --d: 1px;
 
     background: radial-gradient(circle at var(--d) var(--d),
-  
-        black calc(var(--d) - 1px),
-        #a01b1b00 var(--d)) 0 0 / 15px 15px;
+
+            black calc(var(--d) - 1px),
+            #a01b1b00 var(--d)) 0 0 / 15px 15px;
 }
 
 ::-webkit-scrollbar {
     width: 10px;
-  }
+}
 
 .custom-appbar {
     background-color: white !important;
@@ -25,7 +25,7 @@ html {
     font-family: 'Gabarito', sans-serif !important;
 }
 
-h1{
+h1 {
     margin: 0;
     padding: 0.5em;
 }
@@ -34,11 +34,11 @@ a {
     color: black;
 }
 
-a:visited{
+a:visited {
     color: black;
 }
 
-.intro-text{
+.intro-text {
     margin: 0;
     padding: 1em;
     text-align: justify;
@@ -51,24 +51,23 @@ a:visited{
     height: 30%;
     margin: 0 auto;
     display: flex;
-    border-radius: 1em;    
+    border-radius: 1em;
 }
 
-.custom-body{
+.custom-body {
     width: 100%;
     border-radius: 1em;
 }
 
 .custom-container {
     height: 88dvh;
-    padding: 0.5em;
     margin-top: 0.9em;
     background-color: white;
     border-radius: 1em;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
-.login-container{
+.login-container {
     display: flex;
     height: 88dvh;
     padding: 0.5em;
@@ -79,25 +78,30 @@ a:visited{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
-.custom-textfield{
+.custom-textfield {
     width: 100;
     margin: auto;
     border-radius: 4em !important;
 
 }
 
-.profile-banner{
+.profile-banner {
     display: flex;
     height: 30dvh;
-    background-color: #faebd7;
+    background-color: #080808;
     margin: 0 auto;
     align-items: center;
-    border-radius: 1em;
+    border-radius: 1em 1em 0em 0em;
+    color: white;
 }
 
 .profile-banner h1 {
     margin: 0;
     padding: 0;
+}
+
+.profile-banner a {
+   color: white;
 }
 
 .profile-image {
@@ -109,7 +113,6 @@ a:visited{
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     object-fit: cover;
 }
 
@@ -118,7 +121,7 @@ a:visited{
     display: flex;
     flex-direction: column;
     padding-left: 2em;
-    font-size: calc(25px + 0.390625vw);
+    font-size: calc(20px + 0.390625vw);
 }
 
 .profile-text h5 {
@@ -126,47 +129,54 @@ a:visited{
     padding: 0;
 }
 
-.profile-socials{
+.profile-socials {
     margin-top: 0.4em;
 }
 
-.profile-socials > * {
+.profile-socials>* {
     margin-right: 10px;
 }
 
 .profile-bio {
     text-align: center;
-    font-style: italic;
     font-size: 20px;
     padding: 0em;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .profile-bio h5 {
     margin: 0;
-    padding: 1em;
-    font-size: 20px;
-    font-weight: lighter;
+    padding: 0.8em;
+    font-size: 15px;
+    font-weight: 400;
 }
 
-.profile-about{
+.bio-section {
     background-color: white;
     width: 90%;
-    margin: 0 auto;
-    margin-bottom: 0.5em;
-    padding: 1em;
+    margin: auto;
+    margin-top: -2.5em;
     align-items: center;
-    border-radius: 1em;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
 }
+
+.profile-about {
+    background-color: white;
+    width: 55%;
+    margin: auto;
+    padding: 1em;
+}
+
 
 .profile-about h3 {
     margin: 0;
     font-size: 20px;
 }
 
-.profile-section{
+.profile-section {
     margin: 0;
-    font-size: 23px;
 }
 
 .profile-section h5 {
@@ -190,9 +200,39 @@ a:visited{
     overflow: auto;
 }
 
-.social-icons{
+.social-icons {
     display: flex;
     align-items: center;
+}
+
+hr {
+    width: 95%;
+    
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.label {
+    flex: 1;
+    text-align: left;
+    margin-left: calc(30% - 100px);
+    font-weight: 900;
+
+}
+
+.value {
+    flex: 2;
+    margin-right: calc(30% - 100px);
+    text-align: right;
+    color: #080808;
+    font-weight: lighter;
 }
 
 
@@ -204,23 +244,27 @@ a:visited{
 
     .custom-container {
         height: 85dvh;
-        padding: 0.5em;
         border-radius: 1em;
     }
 
-    .profile-banner{
+    .profile-banner {
         height: 18dvh;
         padding: 0.5em;
     }
-    
+
+    .bio-section {
+        margin-top: -1.8em;
+        border-radius: 0.2em;
+    }
+
     .profile-banner h1 {
         margin: 0;
         padding: 0;
     }
-    
+
     .profile-image {
         display: flex;
-        padding-left: 1em;
+        padding-left: 2em;
     }
 
     .profile-image img {
@@ -229,23 +273,23 @@ a:visited{
         border-radius: 50%;
         object-fit: cover;
     }
-    
+
     .profile-text {
         padding-left: 1.5em;
         display: flex;
         flex-direction: column;
-        font-size: calc(15px + 0.390625vw);
+        font-size: calc(12px + 0.390625vw);
     }
 
-    .profile-socials{
+    .profile-socials {
         font-size: x-large;
     }
 
-    .profile-about{
+    .profile-about {
         width: 90%;
     }
 
-    .profile-bio{
+    .profile-bio {
         padding: 0em;
     }
 
@@ -255,18 +299,18 @@ a:visited{
         font-size: large;
     }
 
-    .update-profile{
+    .update-profile {
         width: 100%;
         height: 65dvh;
         margin: 0 auto;
     }
 
-    .custom-textfield{
+    .custom-textfield {
         width: 100%
     }
 
-    .input-file{
-        clip: rect(0,0,0,0);
+    .input-file {
+        clip: rect(0, 0, 0, 0);
         clip-path: inset(50%);
         height: 1;
         overflow: hidden;
@@ -277,11 +321,11 @@ a:visited{
         width: 1;
     }
 
-    .intro-text{
+    .intro-text {
         font-size: 20px;
         padding: 0.5em;
     }
-    
+
     .landing-image {
         width: 90%;
     }
@@ -301,7 +345,6 @@ a:visited{
 
     .profile-image {
         display: flex;
-        padding-left: 2em;
     }
 
     .profile-image img {
@@ -310,7 +353,7 @@ a:visited{
         border-radius: 50%;
         object-fit: cover;
     }
-    
+
     .profile-text {
         padding-left: 1.5em;
         display: flex;

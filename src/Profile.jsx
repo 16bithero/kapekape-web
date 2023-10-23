@@ -16,6 +16,7 @@ export default function Profile({ setIsAuthenticated }) {
   const { username } = useParams();
   const [data, setData] = useState({})
 
+
   const getProfile = async () => {
     try {
       const userInfo = await axios.get(`https://kapekape-backend.vercel.app/api/user/${username}`);
@@ -41,7 +42,7 @@ export default function Profile({ setIsAuthenticated }) {
                   <img src={data.details.image} alt="profile-picture" className="custom-image" />
                 </div>
                 <div className='profile-text'>
-                  <h1>{data.details.fname} {data.details.lname}</h1>
+                  <h1>{data.details.fname} {data.details.lname[0]}.</h1>
                   <h5>{data.details.title} {data.details.company ? `at ${data.details.company}` : ""}</h5>
                   <div className='profile-socials'>
                     {data.details.social.github ? (
@@ -74,28 +75,52 @@ export default function Profile({ setIsAuthenticated }) {
                     ) : ""}
                   </div>
                 </div>
+                <br />
               </div>
               <br />
-              <div className='profile-about'>
-              <h3>About {data.details.fname}</h3>
+              <div className='bio-section'>
               <div className='profile-bio'>
               <h5>"{data.details.bio}"</h5>
                 </div>
               </div>
               <br />
-              <div className='profile-about'>
-                <h3>Contact</h3>
-                <div className='profile-section'>
-                  <h5><FontAwesomeIcon icon={faUser} size='lg' /> {data.details.pronouns}</h5>
-                  <h5><FontAwesomeIcon icon={faLocationDot} size='lg' /> {data.details.city}, {data.details.country}</h5>
-                </div>
 
-                <div className='profile-section'>
-                  <h5><FontAwesomeIcon icon={faPhone} size='lg' /> {data.details.phone}</h5>
-                  <h5><FontAwesomeIcon icon={faEnvelope} size='lg' /> {data.email}</h5>
-                  <h5><FontAwesomeIcon icon={faGlobe} size='lg' /> <a href={`https://www.${data.details.website}`}>{data.details.website}</a></h5>
+             
+             
+                
+                <div className='profile-about'>
+                <div className='info-row'>
+                  <div className='label'>Name</div>
+                  <div className='value'>{data.details.fname} {data.details.lname}</div>
+                  </div>
+                  <hr />
+                  <div className='info-row'>
+                  <div className='label'>Pronoun</div>
+                  <div className='value'>{data.details.pronouns}</div>
+                  </div>
+                  <hr />
+                  <div className='info-row'>
+                  <div className='label'>Location</div>
+                  <div className='value'>{data.details.city}, {data.details.country}</div>
+                  </div>
+                  <hr />
+                  <div className='info-row'>
+                  <div className='label'>Phone</div>
+                  <div className='value'>{data.details.phone}</div>
+                  </div>
+                  <hr />
+                  <div className='info-row'>
+                  <div className='label'>Email</div>
+                  <div className='value'>{data.email}</div>
+                  </div>
+                  <hr />
+                  <div className='info-row'>
+                  <div className='label'>Website</div>
+                  <div className='value'><a href={`https://www.${data.details.website}`}>{data.details.website}</a></div>
+                  </div>
+
                 </div>
-              </div>
+        
             </>
           )}
         </div>
