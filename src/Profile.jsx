@@ -33,7 +33,7 @@ export default function Profile({ setIsAuthenticated }) {
   return (
     <>
       <div className='custom-body'>
-        <div className='custom-container' style={{height:'100%', marginTop:'0.5em'}}>
+        <div className='custom-container' style={{height:'100%'}}>
           {data.details && (
             <>
               <div className='profile-banner'>
