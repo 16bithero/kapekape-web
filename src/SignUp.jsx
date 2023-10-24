@@ -48,7 +48,7 @@ export default function SignUp() {
   return (
     <>
       <div className='custom-body'>
-        <div className='login-container' style={{height:'100%'}}>
+        <div className='login-container'  style={{height:'95dvh'}}>
           <Stack spacing={4} alignItems="center" justifyContent="center">
             <h1>Kape-Kape!</h1>
             <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />

@@ -340,7 +340,7 @@ hr {
 
 @media only screen and (min-width: 1280px) {
     html {
-        width: 40%;
+        width: 40vw;
     }
 
     .profile-image {

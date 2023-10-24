@@ -34,7 +34,7 @@ export default function Profile({ setIsAuthenticated }) {
   return (
     <>
       <div className='custom-body'>
-        <div className='custom-container' style={{height:'100%'}}>
+        <div className='custom-container' style={{ height: '100%' }}>
           {data.details && (
             <>
               <div className='profile-banner'>
@@ -79,48 +79,48 @@ export default function Profile({ setIsAuthenticated }) {
               </div>
               <br />
               <div className='bio-section'>
-              <div className='profile-bio'>
-              <h5>"{data.details.bio}"</h5>
+                <div className='profile-bio'>
+                  <h5>"{data.details.bio}"</h5>
                 </div>
               </div>
               <br />
 
-             
-             
-                
-                <div className='profile-about'>
+
+
+
+              <div className='profile-about'>
                 <div className='info-row'>
                   <div className='label'>Name</div>
                   <div className='value'>{data.details.fname} {data.details.lname}</div>
-                  </div>
-                  <hr />
-                  <div className='info-row'>
+                </div>
+                <hr />
+                <div className='info-row'>
                   <div className='label'>Pronoun</div>
                   <div className='value'>{data.details.pronouns}</div>
-                  </div>
-                  <hr />
-                  <div className='info-row'>
+                </div>
+                <hr />
+                <div className='info-row'>
                   <div className='label'>Location</div>
                   <div className='value'>{data.details.city}, {data.details.country}</div>
-                  </div>
-                  <hr />
-                  <div className='info-row'>
+                </div>
+                <hr />
+                <div className='info-row'>
                   <div className='label'>Phone</div>
                   <div className='value'>{data.details.phone}</div>
-                  </div>
-                  <hr />
-                  <div className='info-row'>
+                </div>
+                <hr />
+                <div className='info-row'>
                   <div className='label'>Email</div>
                   <div className='value'>{data.email}</div>
-                  </div>
-                  <hr />
-                  <div className='info-row'>
+                </div>
+                <hr />
+                <div className='info-row'>
                   <div className='label'>Website</div>
                   <div className='value'><a href={`https://www.${data.details.website}`}>{data.details.website}</a></div>
-                  </div>
-
                 </div>
-        
+
+              </div>
+
             </>
           )}
         </div>

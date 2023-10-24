@@ -156,7 +156,7 @@ export default function Settings() {
                   <Tab label="Socials" value="3" />
                 </TabList>
                 <TabPanel value="1">
-                  <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '1em', margin: 'auto' }}>
+                  <Stack spacing={3} alignItems="center" sx={{ padding: '1em', margin: 'auto' }}>
                     <img src={image} className="custom-image" style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%' }} />
                     <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
                       Change Image (Max 10MB)
@@ -180,7 +180,7 @@ export default function Settings() {
                 </TabPanel>
 
                 <TabPanel value="2">
-                  <Stack spacing={3} alignItems="center" justifyContent="center">
+                  <Stack spacing={3} alignItems="center">
                     <TextField fullWidth id="bio" multiline rows={3} label="Bio" variant="outlined" className='custom-textfield' helperText="Max 250 character limit." inputProps={{ maxLength: 250 }} value={bio} onChange={(e) => setBio(e.target.value)} />
                     <TextField fullWidth id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
                     <TextField fullWidth id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
@@ -189,7 +189,7 @@ export default function Settings() {
                   </Stack>
                 </TabPanel>
 
-                <TabPanel value="3" justifyContent="center">
+                <TabPanel value="3">
                   <div className='profile-section'>
                     <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '0', margin: 'auto' }}>
                       <div className='social-icons'>
