@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import './App.css'
-import Skeleton from '@mui/material/Skeleton';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl, Stack } from '@mui/material';
 import axios from 'axios'
@@ -60,16 +59,18 @@ export default function Login({ setIsAuthenticated }) {
     return (
         <>
             <div className='custom-body'>
-                <div className='login-container' style={{height:'95dvh'}}>
+                <div className='login-container'>
+                    <div className='login-brand'>
+                        <h1>Kape-Kape!</h1>
+                        <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />
+                    </div>
                     <Stack spacing={4} alignItems="center" justifyContent="center">
-                    <h1>Kape-Kape!</h1>
-                        <img src={QR} alt='QR' className='login-image' style={{width:'50%'}}/>
                         <form onSubmit={userLogin}>
                             <FormControl>
                                 <Stack spacing={3} alignItems="center" justifyContent="center">
-                                    <TextField fullWidth id="email" label="Email" variant="outlined" className='custom-textfield' name="email" value={data.email} onChange={onValueChanged} />
-                                    <TextField fullWidth id="password" label="Password" type='password' variant="outlined" className='custom-textfield' name="password" value={data.password} onChange={onValueChanged} />
-                                    <Button variant="contained" fullWidth type='submit'>Login</Button>
+                                    <TextField id="email" label="Email" variant="outlined" className='login-textfield' name="email" value={data.email} onChange={onValueChanged} />
+                                    <TextField  id="password" label="Password" type='password' variant="outlined" className='login-textfield' name="password" value={data.password} onChange={onValueChanged} />
+                                    <Button fullWidth variant="contained"  type='submit'>Login</Button>
                                     <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3>
                                 </Stack>
                             </FormControl>

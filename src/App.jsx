@@ -16,6 +16,8 @@ import Settings from './Settings'
 import SignUp from './SignUp'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
@@ -39,23 +41,17 @@ function App() {
       {isAuthenticated && (
         <>
         <SlideDrawer open={isLeftDrawerOpen} onClose={toggleLeftDrawer} />
-        <AppBar position="relative" className='custom-appbar'>
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
+        <div className='custom-appbar'>
+         
+          <IconButton
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
               onClick={toggleLeftDrawer}
+              style={{marginLeft: '5px'}}
             >
-              <MenuIcon />
+              <MenuIcon style={{fontSize: 32}} />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight:'bold', fontSize:'x-large', fontFamily: 'Gabarito' }}>
-              Kape-Kape!
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        </div>
         </>
          )}
         <Routes>

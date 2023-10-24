@@ -37,6 +37,7 @@ export default function SlideDrawer({ open, onClose }) {
       onKeyDown={() => onClose(anchor, false)}
     >
       <List>
+        <h1>Kape-Kape!</h1>
         
         {[
           { text: 'Home', path: '/home', icon: <HomeIcon /> },

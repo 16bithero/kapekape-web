@@ -48,19 +48,21 @@ export default function SignUp() {
   return (
     <>
       <div className='custom-body'>
-        <div className='login-container'  style={{height:'95dvh'}}>
+        <div className='login-container'>
+          <div className='login-brand'>
+              <h1>Kape-Kape!</h1>
+              <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />
+          </div>
           <Stack spacing={4} alignItems="center" justifyContent="center">
-            <h1>Kape-Kape!</h1>
-            <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />
             <form onSubmit={addUser}>
               <FormControl>
                 <Stack spacing={3} alignItems="center" justifyContent="center">
-                  <TextField fullWidth id="username" label="Username" variant="outlined" className='custom-textfield' name="username" value={data.username} onChange={onValueChanged} />
-                  <TextField fullWidth id="email" label="Email" variant="outlined" className='custom-textfield' name="email" value={data.email} onChange={onValueChanged} />
-                  <TextField fullWidth id="password" label="Password" type='password' variant="outlined" className='custom-textfield' name="password" value={data.password} onChange={onValueChanged} />
-                  <Button variant="contained" fullWidth type='submit'>Sign Up</Button>
-                  <h3>Already have an account? <Link to={"/login"}>Log In</Link></h3>
+                  <TextField  id="username" label="Username" variant="outlined" className='login-textfield' name="username" value={data.username} onChange={onValueChanged} />
+                  <TextField  id="email" label="Email" variant="outlined" className='login-textfield' name="email" value={data.email} onChange={onValueChanged} />
+                  <TextField  id="password" label="Password" type='password' variant="outlined" className='login-textfield' name="password" value={data.password} onChange={onValueChanged} />
+                  <Button fullWidth variant="contained"  type='submit'>Sign Up</Button>
                 </Stack>
+                  <h3>Already have an account? <Link to={"/login"}>Log In</Link></h3>
               </FormControl>
             </form>
             <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{ }</h4>

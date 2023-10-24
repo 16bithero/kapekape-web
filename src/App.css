@@ -19,10 +19,8 @@ html {
 }
 
 .custom-appbar {
-    background-color: white !important;
-    color: black !important;
-    border-radius: 1em;
-    font-family: 'Gabarito', sans-serif !important;
+    background-color: white;
+    color: black;
 }
 
 h1 {
@@ -57,6 +55,7 @@ a:visited {
 .custom-body {
     width: 100%;
     border-radius: 1em;
+    background-color: white;
 }
 
 .custom-container {
@@ -64,12 +63,11 @@ a:visited {
     margin-top: 0.9em;
     background-color: white;
     border-radius: 1em;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 }
 
 .login-container {
-    display: flex;
-    height: 88dvh;
+    height: 95dvh;
     padding: 0.5em;
     margin-top: 1em;
     justify-content: center;
@@ -78,11 +76,23 @@ a:visited {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
+.login-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
 .custom-textfield {
     width: 100;
     margin: auto;
-    border-radius: 4em !important;
+}
 
+.login-textfield {
+    width: 250px;
+    margin: auto;
 }
 
 .profile-banner {
@@ -101,7 +111,7 @@ a:visited {
 }
 
 .profile-banner a {
-   color: white;
+    color: white;
 }
 
 .profile-image {
@@ -207,7 +217,7 @@ a:visited {
 
 hr {
     width: 95%;
-    
+
 }
 
 .info-row {

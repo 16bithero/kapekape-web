@@ -13,7 +13,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import EditIcon from '@mui/icons-material/Edit';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
@@ -158,8 +158,7 @@ export default function Settings() {
                 <TabPanel value="1">
                   <Stack spacing={3} alignItems="center" sx={{ padding: '1em', margin: 'auto' }}>
                     <img src={image} className="custom-image" style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%' }} />
-                    <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
-                      Change Image (Max 10MB)
+                    <Button component="label" variant="contained" startIcon={<EditIcon />}>
                       <HideInput type="file" onChange={(e) => setImage(e.target.files[0])} />
                     </Button>
                     <Grid container spacing={2} alignContent='center'>
