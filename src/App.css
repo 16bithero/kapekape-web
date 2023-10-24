@@ -68,7 +68,7 @@ a:visited {
     height: 10vh;
     background-color: white;
     border-radius: 1em;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .navi-links h5 {
@@ -95,7 +95,7 @@ a:visited {
 .custom-container {
     height: 88dvh;
     background-color: white;
-    border-radius: 1em;
+    border-radius: 0.5em;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 }
 
@@ -134,7 +134,7 @@ a:visited {
     background-color: #080808;
     margin: 0 auto;
     align-items: center;
-    border-radius: 1em 1em 0em 0em;
+    border-radius: 0.5em 0.5em 0em 0em;
     color: white;
 }
 
@@ -200,7 +200,7 @@ a:visited {
     margin: auto;
     margin-top: -2.5em;
     align-items: center;
-    border-radius: 1em;
+    border-radius: 0.5em;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 
 }
