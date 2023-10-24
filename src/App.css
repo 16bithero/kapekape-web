@@ -18,11 +18,6 @@ html {
     width: 10px;
 }
 
-.custom-appbar {
-    background-color: white;
-    color: black;
-}
-
 h1 {
     margin: 0;
     padding: 0.5em;
@@ -30,9 +25,16 @@ h1 {
 
 a {
     color: black;
+    text-decoration: none;
 }
 
 a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-appbar {
+    background-color: transparent;
     color: black;
 }
 
@@ -44,6 +46,37 @@ a:visited {
     font-size: 25px;
 }
 
+.landing-area{
+    background-color: #080808;
+    height: 30vh;
+    border-radius: 0em 0em 6em 0em;
+    font-size: calc(18px + 0.390625vw);
+    margin: auto;
+    color: white;
+}
+
+.navi-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin: 0 auto;
+    margin-top: -3em;
+    margin-bottom: 6em;
+    width: 60%;
+    height: 10vh;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navi-links h5 {
+    margin: 0;
+    padding: 0.5em;
+    font-size: 20px;
+}
+
 .landing-image {
     width: 60%;
     height: 30%;
@@ -52,15 +85,15 @@ a:visited {
     border-radius: 1em;
 }
 
+
 .custom-body {
     width: 100%;
     border-radius: 1em;
-    background-color: white;
+    background-color: #080808;
 }
 
 .custom-container {
     height: 88dvh;
-    margin-top: 0.9em;
     background-color: white;
     border-radius: 1em;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
@@ -265,6 +298,12 @@ hr {
     .bio-section {
         margin-top: -4em;
         border-radius: 1em;
+    }
+
+    .landing-area{
+        background-color: #080808;
+        height: 20vh;
+        border-radius: 0em 0em 6em 0em;
     }
 
     .profile-banner h1 {

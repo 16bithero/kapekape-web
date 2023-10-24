@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import { Button, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Landing from './assets/Landing.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faPenToSquare, faQrcode } from '@fortawesome/free-solid-svg-icons';
+
 
 
 export default function Home() {
@@ -20,6 +23,14 @@ export default function Home() {
     }
   }
 
+  const greeting = () => {
+    const date = new Date();
+    const hour = date.getHours();
+    if (hour < 12) return 'Good morning';
+    else if (hour < 18) return 'Good afternoon';
+    else return 'Good evening';
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -27,17 +38,40 @@ export default function Home() {
   return (
     <div className='custom-body'>
       <div className='custom-container'>
-        <h1>Hey there{name? `, ${name}!`: "!"}</h1>
-        <img src={Landing} alt='Landing' className='landing-image' />
-        <h3 className='intro-text'>'Kape-Kape' is a Filipino phrase commonly used when people invite each other for small talk and coffee. 
+        <div className='landing-area'>
+          <h1>{greeting()}{name ? `, ${name}!` : "!"}</h1>
+        </div>
+        {/* <h3 className='intro-text'>'Kape-Kape' is a Filipino phrase commonly used when people invite each other for small talk and coffee. 
           This phrase inspired our app, a digital business card app that allows users to create meaningful connections with just a click of a QR code.</h3>
-          <h3 className='intro-text'>Developed by 16BitHero.</h3>
+          <h3 className='intro-text'>Developed by 16BitHero.</h3> */}
         <br />
-        <Stack spacing={2} direction="row" alignItems="center" justifyContent="center" useFlexGap flexWrap="wrap">
+        <Link to={`/profile/${username}`}>
+          <div className='navi-links'>
+            <FontAwesomeIcon icon={faUser} size="2x" style={{ color: "#4a4a4a", }} />
+            <h5>View Profile</h5>
+          </div>
+        </Link>
+
+        <Link to="/settings">
+          <div className='navi-links'>
+            <FontAwesomeIcon icon={faPenToSquare} size="2x" style={{ color: "#4a4a4a", }} />
+            <h5>Update Profile</h5>
+          </div>
+        </Link>
+
+        <Link to="/qrcode">
+          <div className='navi-links'>
+            <FontAwesomeIcon icon={faQrcode} size="2x" style={{ color: "#4a4a4a", }} />
+            <h5>Share QR Code</h5>
+          </div>
+        </Link>
+
+
+        {/* <Stack spacing={2} direction="row" alignItems="center" justifyContent="center" useFlexGap flexWrap="wrap">
         <Link to={`/profile/${username}`}><Button variant="contained">View Profile</Button></Link>
         <Link to="/settings"><Button variant="contained">Update Profile</Button></Link>
         <Link to="/qrcode"><Button variant="contained">Share QR Code</Button></Link>
-        </Stack>
+        </Stack> */}
       </div>
     </div>
   )
