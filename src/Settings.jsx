@@ -170,128 +170,17 @@ export default function Settings() {
     <>
       <div className='custom-body'>
         <div className='custom-container'>
-          <div className='landing-area' style={{ height: '20dvh' }}>
+          <div className='landing-area' style={{ height: '18dvh' }}>
             <h1>Update Profile</h1>
             <div className="container">
-              <img src={image} className="custom-image" style={{ height: '150px', width: '150px', objectFit: 'cover', borderRadius: '50%' }} />
+              <img src={image} className="custom-image" />
             </div>
-            <Accordion>
-              <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" expandIcon={<ExpandIcon/>}>
-              <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            About Me
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Personal Information</Typography>
-          </AccordionSummary>
-            </Accordion>
-            <div className='update-container'>
-              <h3>Basic Information</h3>
-              <div className='update-content'>
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="fname" label='First Name' variant="filled" value={fname} onChange={(e) => setFname(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="lname" label='Last Name' variant="filled" value={lname} onChange={(e) => setLname(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="title" label="Title" variant="filled" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="company" label="Company" variant="filled" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
-              </div>
-            </div>
-            <div className='update-container'>
-              <h3>Personal Information</h3>
-              <div className='update-content'>
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="bio" multiline rows={3} label="Bio" variant="filled" className='custom-textfield' helperText="Max 250 character limit." inputProps={{ maxLength: 250 }} value={bio} onChange={(e) => setBio(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="pronouns" label="Pronouns" variant="filled" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="phone" label="Phone" variant="filled" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="city" label="City" variant="filled" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="country" label="Country" variant="filled" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
-              </div>
-            </div>
-            <div className='update-container'>
-              <h3>Socials</h3>
-              <div className='update-content'>
-                <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '0', margin: 'auto' }}>
-                  <div className='social-icons'>
-                    <FontAwesomeIcon icon={faLinkedinIn} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                    <TextField
-                      id="linkedin"
-                      label="LinkedIn"
-                      variant="outlined"
-                      className="custom-textfield"
-                      value={linkedin}
-                      onChange={(e) => setLinkedin(e.target.value)}
 
-                    />
-                  </div>
 
-                  <div className='social-icons'>
 
-                    <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                    <TextField
-                      id="facebook"
-                      label="Facebook"
-                      variant="outlined"
-                      className="custom-textfield"
-                      value={facebook}
-                      onChange={(e) => setFacebook(e.target.value)}
-                    />
-
-                  </div>
-                  <div className='social-icons'>
-                    <FontAwesomeIcon icon={faGithub} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                    <TextField
-                      id="github"
-                      label="GitHub"
-                      variant="outlined"
-                      className="custom-textfield"
-                      value={github}
-                      onChange={(e) => setGithub(e.target.value)}
-                    />
-
-                  </div>
-
-                  <div className='social-icons'>
-
-                    <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                    <TextField
-                      id="instagram"
-                      label="Instagram"
-                      variant="outlined"
-                      className="custom-textfield"
-                      value={instagram}
-                      onChange={(e) => setInstagram(e.target.value)}
-                    />
-
-                  </div>
-
-                  <div className='social-icons'>
-
-                    <FontAwesomeIcon icon={faXTwitter} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                    <TextField
-                      id="twitter"
-                      label="X"
-                      variant="outlined"
-                      className="custom-textfield"
-                      value={twitter}
-                      onChange={(e) => setTwitter(e.target.value)}
-                    />
-
-                  </div>
-
-                  <div className='social-icons'>
-
-                    <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                    <TextField
-                      id="website"
-                      label="Website"
-                      variant="outlined"
-                      className="custom-textfield"
-                      value={website}
-                      onChange={(e) => setWebsite(e.target.value)}
-                    />
-                  </div>
-
-                </Stack>
-              </div>
-            </div>
           </div>
           <form onSubmit={updateDetails}>
-            {/* <div className='update-profile'>
+            <div className='update-container'>
               <TabContext value={value}>
                 <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
                   <Tab label="About me" value="1" />
@@ -299,130 +188,125 @@ export default function Settings() {
                   <Tab label="Socials" value="3" />
                 </TabList>
                 <TabPanel value="1">
-                  <Stack spacing={3} alignItems="center" sx={{ padding: '1em', margin: 'auto' }}>
-                    <img src={image} className="custom-image" style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%' }} />
-                    <Button component="label" variant="contained" startIcon={<EditIcon />}>
-                      <HideInput type="file" onChange={(e) => setImage(e.target.files[0])} />
-                    </Button>
-                    <Grid container spacing={2} alignContent='center'>
-                      <Grid item xs={6}>
-                        <TextField id="fname" label='First Name' variant="outlined" className='custom-textfield' value={fname} onChange={(e) => setFname(e.target.value)} />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField id="lname" label='Last Name' variant="outlined" className='custom-textfield' value={lname} onChange={(e) => setLname(e.target.value)} />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField id="title" label="Title" variant="outlined" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField id="company" label="Company" variant="outlined" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
-                      </Grid>
-                    </Grid>
-                  </Stack>
+                  <div>
+                    <h3>Basic Information</h3>
+                    <div className='update-content'>
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="fname" label='First Name' variant="filled" value={fname} onChange={(e) => setFname(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="lname" label='Last Name' variant="filled" value={lname} onChange={(e) => setLname(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="title" label="Title" variant="filled" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="company" label="Company" variant="filled" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
+                    </div>
+                  </div>
                 </TabPanel>
 
                 <TabPanel value="2">
-                  <Stack spacing={3} alignItems="center">
-                    <TextField fullWidth id="bio" multiline rows={3} label="Bio" variant="outlined" className='custom-textfield' helperText="Max 250 character limit." inputProps={{ maxLength: 250 }} value={bio} onChange={(e) => setBio(e.target.value)} />
-                    <TextField fullWidth id="pronouns" label="Pronouns" variant="outlined" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
-                    <TextField fullWidth id="phone" label="Phone" variant="outlined" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                    <TextField fullWidth id="city" label="City" variant="outlined" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
-                    <TextField fullWidth id="country" label="Country" variant="outlined" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
-                  </Stack>
+
+                  <div>
+                    <h3>Personal Information</h3>
+                    <div className='update-content'>
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="bio" multiline rows={3} label="Bio" variant="filled" className='custom-textfield' helperText="Max 250 character limit." inputProps={{ maxLength: 250 }} value={bio} onChange={(e) => setBio(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="pronouns" label="Pronouns" variant="filled" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="phone" label="Phone" variant="filled" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="city" label="City" variant="filled" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="country" label="Country" variant="filled" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
+                    </div>
+                  </div>
                 </TabPanel>
 
                 <TabPanel value="3">
-                  <div className='profile-section'>
-                    <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '0', margin: 'auto' }}>
-                      <div className='social-icons'>
-                        <FontAwesomeIcon icon={faLinkedinIn} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                        <TextField
-                          id="linkedin"
-                          label="LinkedIn"
-                          variant="outlined"
-                          className="custom-textfield"
-                          value={linkedin}
-                          onChange={(e) => setLinkedin(e.target.value)}
+                  <div>
+                    <div className='update-content'>
+                      <Stack spacing={3} alignItems="center" justifyContent="center" sx={{ padding: '0', margin: 'auto' }}>
+                        <div className='social-icons'>
+                          <FontAwesomeIcon icon={faLinkedinIn} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
+                          <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                            id="linkedin"
+                            label="LinkedIn"
+                            variant="filled"
+                            className="custom-textfield"
+                            value={linkedin}
+                            onChange={(e) => setLinkedin(e.target.value)}
 
-                        />
-                      </div>
+                          />
+                        </div>
 
-                      <div className='social-icons'>
+                        <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                        <TextField
-                          id="facebook"
-                          label="Facebook"
-                          variant="outlined"
-                          className="custom-textfield"
-                          value={facebook}
-                          onChange={(e) => setFacebook(e.target.value)}
-                        />
+                          <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
+                         <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                            id="facebook"
+                            label="Facebook"
+                            variant="filled"
+                            className="custom-textfield"
+                            value={facebook}
+                            onChange={(e) => setFacebook(e.target.value)}
+                          />
 
-                      </div>
-                      <div className='social-icons'>
-                        <FontAwesomeIcon icon={faGithub} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                        <TextField
-                          id="github"
-                          label="GitHub"
-                          variant="outlined"
-                          className="custom-textfield"
-                          value={github}
-                          onChange={(e) => setGithub(e.target.value)}
-                        />
+                        </div>
+                        <div className='social-icons'>
+                          <FontAwesomeIcon icon={faGithub} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
+                          <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                            id="github"
+                            label="GitHub"
+                            variant="filled"
+                            className="custom-textfield"
+                            value={github}
+                            onChange={(e) => setGithub(e.target.value)}
+                          />
 
-                      </div>
+                        </div>
 
-                      <div className='social-icons'>
+                        <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                        <TextField
-                          id="instagram"
-                          label="Instagram"
-                          variant="outlined"
-                          className="custom-textfield"
-                          value={instagram}
-                          onChange={(e) => setInstagram(e.target.value)}
-                        />
+                          <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
+                          <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                            id="instagram"
+                            label="Instagram"
+                            variant="filled"
+                            className="custom-textfield"
+                            value={instagram}
+                            onChange={(e) => setInstagram(e.target.value)}
+                          />
 
-                      </div>
+                        </div>
 
-                      <div className='social-icons'>
+                        <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faXTwitter} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                        <TextField
-                          id="twitter"
-                          label="X"
-                          variant="outlined"
-                          className="custom-textfield"
-                          value={twitter}
-                          onChange={(e) => setTwitter(e.target.value)}
-                        />
+                          <FontAwesomeIcon icon={faXTwitter} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
+                          <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                            id="twitter"
+                            label="X"
+                            variant="filled"
+                            className="custom-textfield"
+                            value={twitter}
+                            onChange={(e) => setTwitter(e.target.value)}
+                          />
 
-                      </div>
+                        </div>
 
-                      <div className='social-icons'>
+                        <div className='social-icons'>
 
-                        <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                        <TextField
-                          id="website"
-                          label="Website"
-                          variant="outlined"
-                          className="custom-textfield"
-                          value={website}
-                          onChange={(e) => setWebsite(e.target.value)}
-                        />
-                      </div>
+                          <FontAwesomeIcon icon={faGlobe} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
+                          <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                            id="website"
+                            label="Website"
+                            variant="filled"
+                            className="custom-textfield"
+                            value={website}
+                            onChange={(e) => setWebsite(e.target.value)}
+                          />
+                        </div>
 
-                    </Stack>
+                      </Stack>
+                    </div>
                   </div>
                 </TabPanel>
               </TabContext>
-            </div> */}
+            </div>
             <br />
-            {/* <div style={{ justifyContent: 'center', display: 'flex' }}>
+            <div style={{ justifyContent: 'center', display: 'flex' }}>
               <Button variant="contained" type='submit'>Update</Button>
-            </div> */}
+            </div>
 
           </form>
         </div>

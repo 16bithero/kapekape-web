@@ -39,7 +39,7 @@ export default function Profile({ setIsAuthenticated }) {
             <>
               <div className='profile-banner'>
                 <div className='profile-image'>
-                  <img src={data.details.image} alt="profile-picture" className="custom-image" />
+                  <img src={data.details.image} alt="profile-picture"/>
                 </div>
                 <div className='profile-text'>
                   <h1>{data.details.fname} {data.details.lname[0]}.</h1>
