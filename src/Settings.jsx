@@ -1,11 +1,10 @@
 import './App.css'
-import { Accordion, AccordionSummary, Paper, Stack, TextField } from '@mui/material'
+import { Stack, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -13,13 +12,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import EditIcon from '@mui/icons-material/Edit';
 import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import InputLabel from '@mui/material/InputLabel';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Typography from '@mui/material/Typography';
-import ExpandIcon from '@mui/icons-material/ExpandMore';
 
 
 const CustomTextField = styled(TextField)({
@@ -37,6 +30,8 @@ const CustomTextField = styled(TextField)({
     },
   },
 });
+
+
 
 
 export default function Settings() {
@@ -79,8 +74,20 @@ export default function Settings() {
     width: '100%',
   });
 
+  const customFont = {
+    fontFamily: 'Nunito Sans, sans-serif',
+    fontWeight: 'bold',
+    color: 'black',
+  };
 
-
+  const style = {
+    button: {
+      backgroundColor: '#292929',
+      border: '1px solid #080808',
+      color: 'white',
+      fontWeight: 'bold',
+    },
+  };
 
   const getData = async () => {
     try {
@@ -182,19 +189,18 @@ export default function Settings() {
           <form onSubmit={updateDetails}>
             <div className='update-container'>
               <TabContext value={value}>
-                <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
-                  <Tab label="About me" value="1" />
-                  <Tab label="Info" value="2" />
-                  <Tab label="Socials" value="3" />
+                <TabList TabIndicatorProps={{ style: { background: 'black' }}} onChange={handleChange} aria-label="update setting" variant="fullWidth" style={style.tabList}>
+                  <Tab label="About me" value="1" style={customFont} />
+                  <Tab label="Details" value="2" style={customFont} />
+                  <Tab label="Socials" value="3" style={customFont}/>
                 </TabList>
                 <TabPanel value="1">
                   <div>
-                    <h3>Basic Information</h3>
                     <div className='update-content'>
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="fname" label='First Name' variant="filled" value={fname} onChange={(e) => setFname(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="lname" label='Last Name' variant="filled" value={lname} onChange={(e) => setLname(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="title" label="Title" variant="filled" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="company" label="Company" variant="filled" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="fname" label='First Name' variant="filled" value={fname} onChange={(e) => setFname(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="lname" label='Last Name' variant="filled" value={lname} onChange={(e) => setLname(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="title" label="Title" variant="filled" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="company" label="Company" variant="filled" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
                     </div>
                   </div>
                 </TabPanel>
@@ -202,13 +208,12 @@ export default function Settings() {
                 <TabPanel value="2">
 
                   <div>
-                    <h3>Personal Information</h3>
                     <div className='update-content'>
                       <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="bio" multiline rows={3} label="Bio" variant="filled" className='custom-textfield' helperText="Max 250 character limit." inputProps={{ maxLength: 250 }} value={bio} onChange={(e) => setBio(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="pronouns" label="Pronouns" variant="filled" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="phone" label="Phone" variant="filled" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="city" label="City" variant="filled" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
-                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1em', width: '100%' }} id="country" label="Country" variant="filled" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="pronouns" label="Pronouns" variant="filled" className='custom-textfield' value={pronouns} onChange={(e) => setPronouns(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="phone" label="Phone" variant="filled" className='custom-textfield' value={phone} onChange={(e) => setPhone(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="city" label="City" variant="filled" className='custom-textfield' value={city} onChange={(e) => setCity(e.target.value)} />
+                      <CustomTextField InputProps={{ disableUnderline: true }} style={{ marginBottom: '1.5em', width: '100%' }} id="country" label="Country" variant="filled" className='custom-textfield' value={country} onChange={(e) => setCountry(e.target.value)} />
                     </div>
                   </div>
                 </TabPanel>
@@ -305,7 +310,7 @@ export default function Settings() {
             </div>
             <br />
             <div style={{ justifyContent: 'center', display: 'flex' }}>
-              <Button variant="contained" type='submit'>Update</Button>
+              <Button variant="contained" type='submit' style={style.button}>Update</Button>
             </div>
 
           </form>

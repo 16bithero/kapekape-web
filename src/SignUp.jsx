@@ -7,8 +7,34 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import QR from './assets/QR.png'
 import { Link } from 'react-router-dom';
+import styled from '@mui/material/styles/styled';
+
+const CustomTextField = styled(TextField)({
+  '& .MuiFilledInput-root': {
+    borderRadius: 10,
+    backgroundColor: '#eef1f4',
+    border: '1px solid #080808',
+    borderColor: '#080808',
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: 'transparent',
+      borderColor: '#080808',
+    },
+  },
+});
 
 export default function SignUp() {
+  const style = {
+    button: {
+      backgroundColor: '#292929',
+      border: '1px solid #080808',
+      color: 'white',
+      fontWeight: 'bold',
+      width: '250px',
+    },
+  };
 
   const INITIAL_VALUE = {
     username: '',
@@ -22,6 +48,7 @@ export default function SignUp() {
   const validInput = new RegExp('^[A-Za-z]+$');
   const [fnameErr, setFnameErr] = useState(false);
   const [lnameErr, setLnameErr] = useState(false);
+
 
   const addUser = async (event) => {
     event.preventDefault()
@@ -50,19 +77,19 @@ export default function SignUp() {
       <div className='custom-body'>
         <div className='login-container'>
           <div className='login-brand'>
-              <h1>Kape-Kape!</h1>
-              <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />
+            <h1>Kape-Kape!</h1>
+            <img src={QR} alt='QR' className='login-image' style={{ width: '50%' }} />
           </div>
           <Stack spacing={4} alignItems="center" justifyContent="center">
             <form onSubmit={addUser}>
               <FormControl>
                 <Stack spacing={3} alignItems="center" justifyContent="center">
-                  <TextField  id="username" label="Username" variant="outlined" className='login-textfield' name="username" value={data.username} onChange={onValueChanged} />
-                  <TextField  id="email" label="Email" variant="outlined" className='login-textfield' name="email" value={data.email} onChange={onValueChanged} />
-                  <TextField  id="password" label="Password" type='password' variant="outlined" className='login-textfield' name="password" value={data.password} onChange={onValueChanged} />
-                  <Button fullWidth variant="contained"  type='submit'>Sign Up</Button>
+                <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="username" label="Username" variant="filled" name="username" value={data.username} onChange={onValueChanged} />
+                <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="email" label="Email" variant="filled" name="email" value={data.email} onChange={onValueChanged} />
+                <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
+                  <Button fullWidth variant="contained" type='submit' style={style.button}>Sign Up</Button>
+                <h3>Already have an account? <Link to={"/login"}>Log In</Link></h3>
                 </Stack>
-                  <h3>Already have an account? <Link to={"/login"}>Log In</Link></h3>
               </FormControl>
             </form>
             <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{ }</h4>

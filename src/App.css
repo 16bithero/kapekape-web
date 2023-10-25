@@ -29,7 +29,6 @@ h5 {
 
 a {
     color: black;
-    text-decoration: none;
 }
 
 a:visited {
@@ -142,11 +141,6 @@ a:visited {
 
 .custom-textfield {
     width: 100;
-    margin: auto;
-}
-
-.login-textfield {
-    width: 250px;
     margin: auto;
 }
 

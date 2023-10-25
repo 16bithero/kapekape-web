@@ -2,11 +2,28 @@ import React from 'react'
 import { useState } from 'react'
 import './App.css'
 import TextField from '@mui/material/TextField';
-import { Button, FormControl, Stack } from '@mui/material';
+import { Button, FormControl, Snackbar, Stack } from '@mui/material';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import QR from './assets/QR.png'
+import styled from '@mui/material/styles/styled';
+
+const CustomTextField = styled(TextField)({
+    '& .MuiFilledInput-root': {
+        borderRadius: 10,
+        backgroundColor: '#eef1f4',
+        border: '1px solid #080808',
+        borderColor: '#080808',
+        '&:hover': {
+            backgroundColor: 'transparent',
+        },
+        '&.Mui-focused': {
+            backgroundColor: 'transparent',
+            borderColor: '#080808',
+        },
+    },
+});
 
 export default function Login({ setIsAuthenticated }) {
     let navigate = useNavigate();
@@ -15,6 +32,19 @@ export default function Login({ setIsAuthenticated }) {
         password: '',
     })
     const [error, setError] = useState('')
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false); // Close the Snackbar
+    };
+    const style = {
+        button: {
+            backgroundColor: '#292929',
+            border: '1px solid #080808',
+            color: 'white',
+            fontWeight: 'bold',
+            width: '250px',
+        },
+    };
 
     const userLogin = async (event) => {
         event.preventDefault();
@@ -44,6 +74,7 @@ export default function Login({ setIsAuthenticated }) {
                     }
                 })
             setIsAuthenticated(true);
+            setSnackbarOpen(true); 
             navigate('/home');
         } catch (error) {
             console.error(error);
@@ -58,6 +89,16 @@ export default function Login({ setIsAuthenticated }) {
 
     return (
         <>
+            <Snackbar
+             anchorOrigin={{
+                horizontal: "left",
+                vertical: "bottom",
+            }}
+    open={snackbarOpen}
+    autoHideDuration={6000}
+    onClose={handleSnackbarClose}
+    message="Successfully logged in!"
+/>
             <div className='custom-body'>
                 <div className='login-container'>
                     <div className='login-brand'>
@@ -68,14 +109,16 @@ export default function Login({ setIsAuthenticated }) {
                         <form onSubmit={userLogin}>
                             <FormControl>
                                 <Stack spacing={3} alignItems="center" justifyContent="center">
-                                    <TextField id="email" label="Email" variant="outlined" className='login-textfield' name="email" value={data.email} onChange={onValueChanged} />
-                                    <TextField  id="password" label="Password" type='password' variant="outlined" className='login-textfield' name="password" value={data.password} onChange={onValueChanged} />
-                                    <Button fullWidth variant="contained"  type='submit'>Login</Button>
+                                    <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="email" label="Email" variant="filled" name="email" value={data.email} onChange={onValueChanged} />
+                                    <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
+                                    <Button fullWidth variant="contained" type='submit' style={style.button}>Login</Button>
                                     <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3>
                                 </Stack>
                             </FormControl>
                         </form>
                         <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{error}</h4>
+                        
+
                     </Stack>
                 </div>
             </div>
