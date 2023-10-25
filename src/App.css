@@ -387,6 +387,12 @@ hr {
         top: 0em;
     }
 
+    .fab-icon {
+        position: absolute;
+        top: calc(30% + 3em);
+        right: calc(30% + 0.5em);
+    }
+
     .custom-image {
         height: 120px;
         width: 120px;
