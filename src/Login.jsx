@@ -2,12 +2,14 @@ import React from 'react'
 import { useState } from 'react'
 import './App.css'
 import TextField from '@mui/material/TextField';
-import { Button, FormControl, Snackbar, Stack } from '@mui/material';
+import { Button, FormControl, Stack } from '@mui/material';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import QR from './assets/QR.png'
 import styled from '@mui/material/styles/styled';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CustomTextField = styled(TextField)({
     '& .MuiFilledInput-root': {
@@ -32,10 +34,6 @@ export default function Login({ setIsAuthenticated }) {
         password: '',
     })
     const [error, setError] = useState('')
-    const [snackbarOpen, setSnackbarOpen] = useState(false);
-    const handleSnackbarClose = () => {
-        setSnackbarOpen(false); // Close the Snackbar
-    };
     const style = {
         button: {
             backgroundColor: '#292929',
@@ -45,6 +43,17 @@ export default function Login({ setIsAuthenticated }) {
             width: '250px',
         },
     };
+
+    const notify = () => toast.success('Login Success', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+    });
 
     const userLogin = async (event) => {
         event.preventDefault();
@@ -73,9 +82,12 @@ export default function Login({ setIsAuthenticated }) {
                         if (details.social) localStorage.setItem('social', details.social);
                     }
                 })
-            setIsAuthenticated(true);
-            setSnackbarOpen(true); 
-            navigate('/home');
+
+            notify();
+            setTimeout(() => {
+                setIsAuthenticated(true);
+                navigate('/home');
+            }, 2500);
         } catch (error) {
             console.error(error);
             setError('Invalid Credentials');
@@ -89,16 +101,6 @@ export default function Login({ setIsAuthenticated }) {
 
     return (
         <>
-            <Snackbar
-             anchorOrigin={{
-                horizontal: "left",
-                vertical: "bottom",
-            }}
-    open={snackbarOpen}
-    autoHideDuration={6000}
-    onClose={handleSnackbarClose}
-    message="Successfully logged in!"
-/>
             <div className='custom-body'>
                 <div className='login-container'>
                     <div className='login-brand'>
@@ -109,17 +111,28 @@ export default function Login({ setIsAuthenticated }) {
                         <form onSubmit={userLogin}>
                             <FormControl>
                                 <Stack spacing={3} alignItems="center" justifyContent="center">
-                                    <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="email" label="Email" variant="filled" name="email" value={data.email} onChange={onValueChanged} />
-                                    <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
+                                    <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px' }} id="email" label="Email" variant="filled" name="email" value={data.email} onChange={onValueChanged} />
+                                    <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px' }} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
                                     <Button fullWidth variant="contained" type='submit' style={style.button}>Login</Button>
                                     <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3>
+                                    <button onClick={notify}>Notify !</button>
                                 </Stack>
                             </FormControl>
                         </form>
                         <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{error}</h4>
-                        
-
                     </Stack>
+                    <ToastContainer
+                        position="bottom-center"
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
                 </div>
             </div>
         </>
