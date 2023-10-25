@@ -95,7 +95,7 @@ export default function Profile({ setIsAuthenticated }) {
                 </div>
                 <hr />
                 <div className='info-row'>
-                  <div className='label'>Pronoun</div>
+                  <div className='label'>Pronouns</div>
                   <div className='value'>{data.details.pronouns}</div>
                 </div>
                 <hr />

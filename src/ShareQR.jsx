@@ -11,14 +11,21 @@ export default function ShareQR() {
         <>
             <div className='custom-body'>
                 <div className='custom-container'>
+                    <div className='landing-area' style={{height:'40dvh'}}>
                     <h1>QR Code</h1>
                     <Stack spacing={2} alignItems="center" justifyContent="center">
-                        <QRCode
-                            title="Your Profile"
+                    <QRCode
+                            title="Profile QR Code"
                             value={url}
-                            bgColor='black'
-                            fgColor="white"
+                            bgColor='white'
+                            fgColor="black"
+                            size={200}
+                            
                         />
+                        </Stack>
+                    </div>
+                    <Stack spacing={2} alignItems="center" justifyContent="center">
+                       
                         <br />
                         <h3>Passes Coming Soon!</h3>
                         <img src='https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/add-to-apple-wallet-logo.png' alt='Apple Pass coming soon' style={{filter:'grayscale(100%)'}}height={50}></img>

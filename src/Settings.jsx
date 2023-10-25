@@ -146,9 +146,27 @@ export default function Settings() {
     <>
       <div className='custom-body'>
         <div className='custom-container'>
+          <div className='landing-area' style={{height:'18dvh'}}>
           <h1>Update Profile</h1>
+          <div class="container">
+          <img src={image} className="custom-image" style={{ height: '150px', width: '150px', objectFit: 'cover', borderRadius: '50%' }} />
+          </div>
+          <div className='update-container'>
+            <h3>About Me</h3>
+            <Stack spacing={3} alignItems="center">
+                  
+                        <TextField id="fname" label='First Name' variant="outlined" className='custom-textfield' value={fname} onChange={(e) => setFname(e.target.value)} />
+                   
+                        <TextField id="lname" label='Last Name' variant="outlined" className='custom-textfield' value={lname} onChange={(e) => setLname(e.target.value)} />
+                   
+                        <TextField id="title" label="Title" variant="outlined" className='custom-textfield' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    
+                        <TextField id="company" label="Company" variant="outlined" className='custom-textfield' value={company} onChange={(e) => setCompany(e.target.value)} />
+                  </Stack>
+          </div>
+            </div>
           <form onSubmit={updateDetails}>
-            <div className='update-profile'>
+            {/* <div className='update-profile'>
               <TabContext value={value}>
                 <TabList onChange={handleChange} aria-label="update setting" variant="fullWidth" >
                   <Tab label="About me" value="1" />
@@ -275,11 +293,11 @@ export default function Settings() {
                   </div>
                 </TabPanel>
               </TabContext>
-            </div>
+            </div> */}
             <br />
-            <div style={{ justifyContent: 'center', display: 'flex' }}>
+            {/* <div style={{ justifyContent: 'center', display: 'flex' }}>
               <Button variant="contained" type='submit'>Update</Button>
-            </div>
+            </div> */}
 
           </form>
         </div>

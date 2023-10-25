@@ -18,7 +18,7 @@ html {
     width: 10px;
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
     margin: 0;
     padding: 0.5em;
 }
@@ -49,11 +49,17 @@ a:visited {
 .landing-area{
     background-color: #080808;
     height: 30vh;
-    border-radius: 0em 0em 6em 0em;
-    font-size: calc(18px + 0.390625vw);
+    font-size: calc(15px + 0.390625vw);
     margin: auto;
     color: white;
 }
+
+.container {
+    position: relative; 
+    display: flex;           
+    justify-content: center; 
+    align-items: center; 
+  }
 
 .navi-links{
     display: flex;
@@ -232,6 +238,18 @@ a:visited {
     font-weight: lighter;
 }
 
+.update-container {
+    margin: auto;
+    margin-top: 1em;
+    border-radius: 1em;
+    padding: 0;
+    width: 90%;
+    height: 30dvh;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    color: black;
+    overflow: scroll;
+}
+
 .update-profile {
     width: 90%;
     margin: auto;
@@ -287,7 +305,7 @@ hr {
 
     .custom-container {
         height: 85dvh;
-        border-radius: 1em;
+        border-radius: 0.5em;
     }
 
     .profile-banner {
@@ -303,7 +321,6 @@ hr {
     .landing-area{
         background-color: #080808;
         height: 20vh;
-        border-radius: 0em 0em 6em 0em;
     }
 
     .profile-banner h1 {
