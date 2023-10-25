@@ -46,7 +46,7 @@ export default function Login({ setIsAuthenticated }) {
 
     const notify = () => toast.success('Login Success', {
         position: "bottom-center",
-        autoClose: 5000,
+        autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -115,7 +115,6 @@ export default function Login({ setIsAuthenticated }) {
                                     <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px' }} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
                                     <Button fullWidth variant="contained" type='submit' style={style.button}>Login</Button>
                                     <h3>New to Kape-Kape? <Link to={"/signup"}>Sign Up</Link></h3>
-                                    <button onClick={notify}>Notify !</button>
                                 </Stack>
                             </FormControl>
                         </form>

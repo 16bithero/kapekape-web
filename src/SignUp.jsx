@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import QR from './assets/QR.png'
 import { Link } from 'react-router-dom';
 import styled from '@mui/material/styles/styled';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CustomTextField = styled(TextField)({
   '& .MuiFilledInput-root': {
@@ -49,23 +51,41 @@ export default function SignUp() {
   const [fnameErr, setFnameErr] = useState(false);
   const [lnameErr, setLnameErr] = useState(false);
 
+  const notify = () => toast.success('Account successfully created!', {
+    position: "bottom-center",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    theme: "dark",
+  });
 
   const addUser = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (validInput.test(data.first_name) && validInput.test(data.last_name)) {
       const signup = {
         username: data.username,
         email: data.email,
         password: data.password,
+      };
+
+      try {
+        const res = await axios.post('https://kapekape-backend.vercel.app/api/user/add', signup);
+        notify();
+        setTimeout(() => {
+          navigate('/login');
+        }, 2500);
       }
-      axios.post('https://kapekape-backend.vercel.app/api/user/add', signup)
-        .then(res => navigate('/login'))
-        .catch(function (error) {
-          setError(' (Username already exists)')
-        })
-    } setLnameErr(!validInput.test(data.last_name))
-    setFnameErr(!validInput.test(data.first_name))
-  }
+      catch (error) {
+        setError(' (Username already exists)');
+      }
+    } else {
+      setLnameErr(!validInput.test(data.last_name))
+      setFnameErr(!validInput.test(data.first_name))
+    }
+  };
 
   const onValueChanged = (event) => {
     const { name, value } = event.target;
@@ -84,16 +104,28 @@ export default function SignUp() {
             <form onSubmit={addUser}>
               <FormControl>
                 <Stack spacing={3} alignItems="center" justifyContent="center">
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="username" label="Username" variant="filled" name="username" value={data.username} onChange={onValueChanged} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="email" label="Email" variant="filled" name="email" value={data.email} onChange={onValueChanged} />
-                <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px'}} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
+                  <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px' }} id="username" label="Username" variant="filled" name="username" value={data.username} onChange={onValueChanged} />
+                  <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px' }} id="email" label="Email" variant="filled" name="email" value={data.email} onChange={onValueChanged} />
+                  <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '250px' }} id="password" label="Password" type='password' variant="filled" name="password" value={data.password} onChange={onValueChanged} />
                   <Button fullWidth variant="contained" type='submit' style={style.button}>Sign Up</Button>
-                <h3>Already have an account? <Link to={"/login"}>Log In</Link></h3>
+                  <h3>Already have an account? <Link to={"/login"}>Log In</Link></h3>
                 </Stack>
               </FormControl>
             </form>
             <h4 style={{ color: '#E32636', fontWeight: 'bold', textAlign: 'center' }}>{ }</h4>
           </Stack>
+          <ToastContainer
+            position="bottom-center"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </div>
       </div>
     </>
