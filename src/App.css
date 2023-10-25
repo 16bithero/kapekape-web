@@ -71,9 +71,9 @@ a:visited {
 }
 
 .fab-icon {
-    position: relative;
-    top: 2em;
-    right: 2em;
+    position: absolute;
+    top: 4em;
+    right: 14em;
 }
 
 .navi-links {
@@ -389,8 +389,8 @@ hr {
 
     .fab-icon {
         position: absolute;
-        top: calc(30% + 3em);
-        right: calc(30% + 0.5em);
+        top: 5em;
+        right: 7.5em
     }
 
     .custom-image {
