@@ -1,5 +1,5 @@
 import './App.css'
-import { Stack, TextField } from '@mui/material'
+import { Skeleton, Stack, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Button } from '@mui/material'
@@ -47,7 +47,6 @@ export default function Settings() {
   const [country, setCountry] = useState('');
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
-  const [social, setSocial] = useState('');
   const [pronouns, setPronouns] = useState('');
   const [website, setWebsite] = useState('');
   const [github, setGithub] = useState('');
@@ -92,22 +91,32 @@ export default function Settings() {
   const getData = async () => {
     try {
       const userData = await axios.get(`https://kapekape-backend.vercel.app/api/detail/${userID}`);
-      setFname(userData.data.details.fname);
-      setLname(userData.data.details.lname);
-      setTitle(userData.data.details.title);
-      setCompany(userData.data.details.company);
-      setCity(userData.data.details.city);
-      setCountry(userData.data.details.country);
-      setBio(userData.data.details.bio);
-      setImage(userData.data.details.image);
-      setPronouns(userData.data.details.pronouns);
-      setGithub(userData.data.details.social.github);
-      setTwitter(userData.data.details.social.twitter);
-      setLinkedin(userData.data.details.social.linkedin);
-      setFacebook(userData.data.details.social.facebook);
-      setInstagram(userData.data.details.social.instagram);
-      setPhone(userData.data.details.phone);
-      setWebsite(userData.data.details.website);
+      const userDetail = userData.data.details;
+
+      setFname(userDetail ? userDetail.fname : '');
+      setLname(userDetail ? userDetail.lname : '');
+      setTitle(userDetail ? userDetail.title : '');
+      setCompany(userDetail ? userDetail.company : '');
+      setCity(userDetail ? userDetail.city : '');
+      setCountry(userDetail ? userDetail.country : '');
+      setBio(userDetail ? userDetail.bio : '');
+      setImage(userDetail ? userDetail.image : '');
+      setPronouns(userDetail ? userDetail.pronouns : '');
+      if (userDetail && userDetail.social) {
+        setGithub(userDetail.social.github || '');
+        setTwitter(userDetail.social.twitter || '');
+        setLinkedin(userDetail.social.linkedin || '');
+        setFacebook(userDetail.social.facebook || '');
+        setInstagram(userDetail.social.instagram || '');
+      } else {
+        setGithub('');
+        setTwitter('');
+        setLinkedin('');
+        setFacebook('');
+        setInstagram('');
+      }
+      setPhone(userDetail ? userDetail.phone : '');
+      setWebsite(userDetail ? userDetail.website : '');
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -180,7 +189,17 @@ export default function Settings() {
           <div className='landing-area' style={{ height: '18dvh' }}>
             <h1>Update Profile</h1>
             <div className="container">
-              <img src={image} className="custom-image" />
+              {image ? (
+                <img src={image} className="custom-image" />
+              ) : (
+                <div style={{
+                  width: '125px',
+                  height: '125px',
+                  backgroundColor: 'white',
+                  borderRadius: '50%',
+                  border: '2px solid #080808',
+                }}></div>
+              )}
             </div>
 
 
@@ -189,10 +208,10 @@ export default function Settings() {
           <form onSubmit={updateDetails}>
             <div className='update-container'>
               <TabContext value={value}>
-                <TabList TabIndicatorProps={{ style: { background: 'black' }}} onChange={handleChange} aria-label="update setting" variant="fullWidth" style={style.tabList}>
+                <TabList TabIndicatorProps={{ style: { background: 'black' } }} onChange={handleChange} aria-label="update setting" variant="fullWidth" style={style.tabList}>
                   <Tab label="About me" value="1" style={customFont} />
                   <Tab label="Details" value="2" style={customFont} />
-                  <Tab label="Socials" value="3" style={customFont}/>
+                  <Tab label="Socials" value="3" style={customFont} />
                 </TabList>
                 <TabPanel value="1">
                   <div>
@@ -238,7 +257,7 @@ export default function Settings() {
                         <div className='social-icons'>
 
                           <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1em', height: '30px', width: '30px' }} />
-                         <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
+                          <CustomTextField InputProps={{ disableUnderline: true }} style={{ width: '100%' }}
                             id="facebook"
                             label="Facebook"
                             variant="filled"
