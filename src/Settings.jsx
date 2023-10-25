@@ -1,5 +1,5 @@
 import './App.css'
-import { Skeleton, Stack, TextField } from '@mui/material'
+import { Fab, Skeleton, Stack, TextField } from '@mui/material'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Button } from '@mui/material'
@@ -13,6 +13,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faFacebook, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { styled } from '@mui/material/styles';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 
 const CustomTextField = styled(TextField)({
@@ -200,10 +203,13 @@ export default function Settings() {
                   border: '2px solid #080808',
                 }}></div>
               )}
+              <div className='fab-icon'>
+              <Fab size="small" component="label" style={{color: 'white', backgroundColor:'#080808'}}>
+                <EditIcon />
+                <input type="file" style={{ display: 'none' }} onChange={(e) => setImage(e.target.files[0])} />
+              </Fab>
+              </div>
             </div>
-
-
-
           </div>
           <form onSubmit={updateDetails}>
             <div className='update-container'>

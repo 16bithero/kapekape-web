@@ -70,6 +70,12 @@ a:visited {
     top: -1em;
 }
 
+.fab-icon {
+    position: relative;
+    top: 2em;
+    right: 2em;
+}
+
 .navi-links {
     display: flex;
     flex-direction: column;

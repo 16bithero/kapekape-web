@@ -20,7 +20,6 @@ export default function ShareQR() {
                             bgColor='white'
                             fgColor="black"
                             size={200}
-                            
                         />
                         </Stack>
                     </div>
