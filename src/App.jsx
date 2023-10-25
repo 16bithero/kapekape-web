@@ -13,6 +13,7 @@ import Settings from './Settings'
 import SignUp from './SignUp'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import About from './About'
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/signup" element={<SignUp setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>

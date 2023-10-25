@@ -14,6 +14,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import QrCodeIcon from '@mui/icons-material/QrCode';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import LogoutIcon from '@mui/icons-material/Logout';
+import InfoIcon from '@mui/icons-material/Info';
 
 
 export default function SlideDrawer({ open, onClose }) {
@@ -60,6 +61,7 @@ export default function SlideDrawer({ open, onClose }) {
       <List>
         {[
           { text: 'Update Profile', path: '/settings', icon: <EditNoteIcon /> },
+          { text: 'About', path: '/about', icon: <InfoIcon /> },
           { text: 'Log Out', path: '/', onClick: handleLogout, icon: <LogoutIcon /> },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>

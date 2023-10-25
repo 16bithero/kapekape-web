@@ -41,37 +41,26 @@ export default function Home() {
         <div className='landing-area'>
           <h1>{greeting()}{name ? `, ${name}!` : "!"}</h1>
         </div>
-        {/* <h3 className='intro-text'>'Kape-Kape' is a Filipino phrase commonly used when people invite each other for small talk and coffee. 
-          This phrase inspired our app, a digital business card app that allows users to create meaningful connections with just a click of a QR code.</h3>
-          <h3 className='intro-text'>Developed by 16BitHero.</h3> */}
-        <br />
-        <Link to={`/profile/${username}`}>
-          <div className='navi-links'>
-            <FontAwesomeIcon icon={faUser} size="2x" style={{ color: "#4a4a4a", }} />
+        <div className='navi-links'>
+          <FontAwesomeIcon icon={faUser} size="2x" style={{ color: "#4a4a4a", }} />
+          <Link to={`/profile/${username}`}>
             <h5>View Profile</h5>
-          </div>
-        </Link>
+          </Link>
+        </div>
 
-        <Link to="/settings">
-          <div className='navi-links'>
-            <FontAwesomeIcon icon={faPenToSquare} size="2x" style={{ color: "#4a4a4a", }} />
+        <div className='navi-links'>
+          <FontAwesomeIcon icon={faPenToSquare} size="2x" style={{ color: "#4a4a4a", }} />
+          <Link to="/settings">
             <h5>Update Profile</h5>
-          </div>
-        </Link>
+          </Link>
+        </div>
 
-        <Link to="/qrcode">
-          <div className='navi-links'>
-            <FontAwesomeIcon icon={faQrcode} size="2x" style={{ color: "#4a4a4a", }} />
+        <div className='navi-links'>
+          <FontAwesomeIcon icon={faQrcode} size="2x" style={{ color: "#4a4a4a", }} />
+          <Link to="/qrcode">
             <h5>Share QR Code</h5>
-          </div>
-        </Link>
-
-
-        {/* <Stack spacing={2} direction="row" alignItems="center" justifyContent="center" useFlexGap flexWrap="wrap">
-        <Link to={`/profile/${username}`}><Button variant="contained">View Profile</Button></Link>
-        <Link to="/settings"><Button variant="contained">Update Profile</Button></Link>
-        <Link to="/qrcode"><Button variant="contained">Share QR Code</Button></Link>
-        </Stack> */}
+          </Link>
+        </div>
       </div>
     </div>
   )
