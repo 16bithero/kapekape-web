@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
 import TextField from '@mui/material/TextField';
@@ -98,6 +98,11 @@ export default function Login({ setIsAuthenticated }) {
         const { name, value } = event.target;
         setData({ ...data, [name]: value });
     };
+
+    useEffect(() => {
+        localStorage.clear();
+        setIsAuthenticated(false);
+    }, [])
 
     return (
         <>
