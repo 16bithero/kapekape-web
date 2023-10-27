@@ -6,10 +6,10 @@
 
 ### Customizable Profile
 
-<img src='https://github.com/16bithero/kapekape-web/blob/main/public/Profile.png' width='50%'></img>
+<img src='https://github.com/16bithero/kapekape-web/blob/main/public/Profile.png' width='60%'></img>
 
 
-<img src='https://github.com/16bithero/kapekape-web/blob/main/public/Update.png' width='50%'></img>
+<img src='https://github.com/16bithero/kapekape-web/blob/main/public/Update.png' width='60%'></img>
 
 <h3>Kape-Kape simplifies online networking by allowing users to showcase their essential information and account links in one place, making it effortless for others to find and connect with them across different platforms, all while maintaining control over what they choose to share.</h3>
 
